@@ -3,9 +3,18 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Meet the dedicated legal team at The Elixirs Law Firm — experienced advocates committed to delivering justice for every client in Pakistan.">
+    <meta property="og:title" content="Our Team - The Elixirs Law Firm">
+    <meta property="og:description" content="Meet the dedicated legal team at The Elixirs Law Firm — experienced advocates committed to delivering justice for every client in Pakistan.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://theelixirslawfirm.com/team.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://theelixirslawfirm.com/team.html">
     <title>Our Team - The Elixirs Law Firm</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- TODO: Replace cdn.tailwindcss.com with compiled CSS for production -->
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap"
         rel="stylesheet">
@@ -64,6 +73,8 @@
 </head>
 
 <body class="bg-[#F4F4F4] text-[#2C2C2C] font-sans antialiased">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-[9999] focus:bg-[#CDA34F] focus:text-[#0a192f] focus:px-4 focus:py-2 focus:text-sm focus:font-bold">Skip to main content</a>
+
 
     <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
          HEADER
@@ -97,7 +108,7 @@
                     class="bg-white text-[#0a192f] px-6 py-3 text-[11px] whitespace-nowrap uppercase tracking-widest font-[800] hover:bg-gold transition-all border-b-2 border-gold">Contact
                     Us</a>
             </nav>
-            <button class="xl:hidden text-white focus:outline-none">
+            <button id="mobile-menu-button" class="xl:hidden text-white focus:outline-none" aria-label="Open navigation menu" aria-expanded="false">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
@@ -108,7 +119,7 @@
     <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
          HERO
     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
-    <section class="relative w-full h-[55vh] bg-parallax flex items-center justify-center mt-32"
+    <section id="main-content" class="relative w-full h-[55vh] bg-parallax flex items-center justify-center mt-32"
         style="background-image: url('./assets/images/team-meeting.jpg');">
         <div class="absolute inset-0 bg-[#0a192f]/70"></div>
         <div class="relative z-10 text-center px-6">
@@ -127,7 +138,7 @@
             <div class="flex flex-col md:flex-row gap-12 items-center fade-in-section">
                 <!-- Image -->
                 <div class="flex-shrink-0 w-full md:w-[300px]">
-                    <img src="assets/images/founder-asif-nawaz.jpg" alt="Mr. Malik Muhammad Asif Nawaz"
+                    <img loading="lazy" src="assets/images/founder-asif-nawaz.jpg" alt="Mr. Malik Muhammad Asif Nawaz"
                         class="w-full h-[380px] object-cover object-top border border-[#E5E5E5]">
                 </div>
                 <!-- Text -->
@@ -181,7 +192,7 @@
                 <div
                     class="member-card fade-in-section flex flex-col md:flex-row bg-white/95 shadow-md overflow-hidden rounded-sm">
                     <div class="flex-shrink-0 w-full md:w-[200px] h-[220px] md:h-auto">
-                        <img src="assets/images/azeem-sabir.jpeg" alt="Muhammad Azeem Sabir"
+                        <img loading="lazy" src="assets/images/azeem-sabir.jpeg" alt="Muhammad Azeem Sabir"
                             class="w-full h-full object-cover object-top">
                     </div>
                     <div class="flex-1 p-7 md:p-8">
@@ -203,7 +214,7 @@
                 <div
                     class="member-card fade-in-section flex flex-col md:flex-row bg-white/95 shadow-md overflow-hidden rounded-sm">
                     <div class="flex-shrink-0 w-full md:w-[200px] h-[220px] md:h-auto">
-                        <img src="assets/images/numan-abbasi.jpeg" alt="Raja Numan Abbasi"
+                        <img loading="lazy" src="assets/images/numan-abbasi.jpeg" alt="Raja Numan Abbasi"
                             class="w-full h-full object-cover object-top">
                     </div>
                     <div class="flex-1 p-7 md:p-8">
@@ -219,7 +230,7 @@
                 <div
                     class="member-card fade-in-section flex flex-col md:flex-row bg-white/95 shadow-md overflow-hidden rounded-sm">
                     <div class="flex-shrink-0 w-full md:w-[200px] h-[220px] md:h-auto">
-                        <img src="assets/images/umair-joiya.jpeg" alt="Umair Joiya"
+                        <img loading="lazy" src="assets/images/umair-joiya.jpeg" alt="Umair Joiya"
                             class="w-full h-full object-cover object-top">
                     </div>
                     <div class="flex-1 p-7 md:p-8">
@@ -234,7 +245,7 @@
                 <div
                     class="member-card fade-in-section flex flex-col md:flex-row bg-white/95 shadow-md overflow-hidden rounded-sm">
                     <div class="flex-shrink-0 w-full md:w-[200px] h-[220px] md:h-auto">
-                        <img src="assets/images/raja-sami-abbasi.jpeg" alt="Adv. Raja Sami Ul Haq Abbasi"
+                        <img loading="lazy" src="assets/images/raja-sami-abbasi.jpeg" alt="Adv. Raja Sami Ul Haq Abbasi"
                             class="w-full h-full object-cover object-top">
                     </div>
                     <div class="flex-1 p-7 md:p-8">
@@ -257,7 +268,7 @@
                 <div
                     class="member-card fade-in-section flex flex-col md:flex-row bg-white/95 shadow-md overflow-hidden rounded-sm">
                     <div class="flex-shrink-0 w-full md:w-[200px] h-[220px] md:h-auto">
-                        <img src="assets/images/mueed-gilani.jpeg" alt="Syed Mueed Sultan Gilani"
+                        <img loading="lazy" src="assets/images/mueed-gilani.jpeg" alt="Syed Mueed Sultan Gilani"
                             class="w-full h-full object-cover object-top">
                     </div>
                     <div class="flex-1 p-7 md:p-8">
@@ -281,7 +292,7 @@
                 <div
                     class="member-card fade-in-section flex flex-col md:flex-row bg-white/95 shadow-md overflow-hidden rounded-sm">
                     <div class="flex-shrink-0 w-full md:w-[200px] h-[220px] md:h-auto">
-                        <img src="assets/images/mamoon-abbasi.jpeg" alt="Raja Mamoon Ul Haq Abbasi"
+                        <img loading="lazy" src="assets/images/mamoon-abbasi.jpeg" alt="Raja Mamoon Ul Haq Abbasi"
                             class="w-full h-full object-cover object-top">
                     </div>
                     <div class="flex-1 p-7 md:p-8">
@@ -305,7 +316,7 @@
                 <div
                     class="member-card fade-in-section flex flex-col md:flex-row bg-white/95 shadow-md overflow-hidden rounded-sm">
                     <div class="flex-shrink-0 w-full md:w-[200px] h-[220px] md:h-auto">
-                        <img src="assets/images/saif-ali.jpeg" alt="Saif Ali"
+                        <img loading="lazy" src="assets/images/saif-ali.jpeg" alt="Saif Ali"
                             class="w-full h-full object-cover object-top">
                     </div>
                     <div class="flex-1 p-7 md:p-8">
@@ -328,7 +339,7 @@
                 <div
                     class="member-card fade-in-section flex flex-col md:flex-row bg-white/95 shadow-md overflow-hidden rounded-sm">
                     <div class="flex-shrink-0 w-full md:w-[200px] h-[220px] md:h-auto">
-                        <img src="assets/images/sameen-asad.jpeg" alt="Chaudhary Sameen Ali Asad"
+                        <img loading="lazy" src="assets/images/sameen-asad.jpeg" alt="Chaudhary Sameen Ali Asad"
                             class="w-full h-full object-cover object-top">
                     </div>
                     <div class="flex-1 p-7 md:p-8">
@@ -352,7 +363,7 @@
                 <div
                     class="member-card fade-in-section flex flex-col md:flex-row bg-white/95 shadow-md overflow-hidden rounded-sm">
                     <div class="flex-shrink-0 w-full md:w-[200px] h-[220px] md:h-auto">
-                        <img src="assets/images/zeeshan-farzand.jpeg" alt="Raja Zeeshan Farzand"
+                        <img loading="lazy" src="assets/images/zeeshan-farzand.jpeg" alt="Raja Zeeshan Farzand"
                             class="w-full h-full object-cover object-top">
                     </div>
                     <div class="flex-1 p-7 md:p-8">
@@ -376,7 +387,7 @@
                 <div
                     class="member-card fade-in-section flex flex-col md:flex-row bg-white/95 shadow-md overflow-hidden rounded-sm">
                     <div class="flex-shrink-0 w-full md:w-[200px] h-[220px] md:h-auto">
-                        <img src="assets/images/mamar-ali.jpeg" alt="Mamar Ali"
+                        <img loading="lazy" src="assets/images/mamar-ali.jpeg" alt="Mamar Ali"
                             class="w-full h-full object-cover object-top">
                     </div>
                     <div class="flex-1 p-7 md:p-8">
@@ -399,7 +410,7 @@
                 <div
                     class="member-card fade-in-section flex flex-col md:flex-row bg-white/95 shadow-md overflow-hidden rounded-sm">
                     <div class="flex-shrink-0 w-full md:w-[200px] h-[220px] md:h-auto">
-                        <img src="assets/images/wasiq-billah.jpeg" alt="Wasiq Billah"
+                        <img loading="lazy" src="assets/images/wasiq-billah.jpeg" alt="Wasiq Billah"
                             class="w-full h-full object-cover object-top">
                     </div>
                     <div class="flex-1 p-7 md:p-8">
@@ -422,7 +433,7 @@
                 <div
                     class="member-card fade-in-section flex flex-col md:flex-row bg-white/95 shadow-md overflow-hidden rounded-sm">
                     <div class="flex-shrink-0 w-full md:w-[200px] h-[220px] md:h-auto">
-                        <img src="assets/images/hashim-sheraz.jpeg" alt="Muhammad Hashim Sheraz"
+                        <img loading="lazy" src="assets/images/hashim-sheraz.jpeg" alt="Muhammad Hashim Sheraz"
                             class="w-full h-full object-cover object-top">
                     </div>
                     <div class="flex-1 p-7 md:p-8">
@@ -446,7 +457,7 @@
                 <div
                     class="member-card fade-in-section flex flex-col md:flex-row bg-white/95 shadow-md overflow-hidden rounded-sm">
                     <div class="flex-shrink-0 w-full md:w-[200px] h-[220px] md:h-auto">
-                        <img src="assets/images/fahad-ul-islam.png" alt="Fahad ul Islam"
+                        <img loading="lazy" src="assets/images/fahad-ul-islam.png" alt="Fahad ul Islam"
                             class="w-full h-full object-cover object-top">
                     </div>
                     <div class="flex-1 p-7 md:p-8">
@@ -530,8 +541,8 @@
                         <li class="group">
                             <span
                                 class="block text-xs uppercase text-gold mb-1 group-hover:text-white transition-colors">Cell Phone & WhatsApp</span>
-                            <span class="text-white text-sm">0312-4604786</span><br>
-                            <span class="text-white text-sm">0331-5052838</span>
+                            <span class="text-white text-sm"><a href="tel:+923124604786" class="hover:underline">0312-4604786</a></span><br>
+                            <span class="text-white text-sm"><a href="tel:+923315052838" class="hover:underline">0331-5052838</a></span>
                         </li>
                         <li class="group">
                             <span
@@ -545,6 +556,10 @@
             <div
                 class="border-t border-white/5 mt-20 pt-10 text-center text-xs tracking-[0.2em] uppercase text-gray-600">
                 <p>&copy; 2026 The Elixirs Law Firm. All Rights Reserved.</p>
+                <div class="mt-4 flex justify-center gap-6 text-xs">
+                    <a href="./privacy-policy.html" class="hover:text-gold transition-colors">Privacy Policy</a>
+                    <a href="./disclaimer.html" class="hover:text-gold transition-colors">Disclaimer</a>
+                </div>
             </div>
         </div>
     </footer>

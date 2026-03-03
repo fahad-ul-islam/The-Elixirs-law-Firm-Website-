@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://theelixirslawfirm.com/sitemap.xml
