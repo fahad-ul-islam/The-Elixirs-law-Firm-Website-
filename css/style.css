@@ -1,0 +1,458 @@
+/* Global Variables */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #2C2C2C;
+    /* Dark Charcoal */
+    --accent-color: #CDA34F;
+    /* Deep Gold */
+    --accent-hover: #3C4F76;
+    /* Slate Blue */
+    --secondary-bg: #f9f9f9;
+    --navy-bg: #1A2B49;
+    /* Deep Navy Blue */
+    --border-color: #E5E5E5;
+    /* Light Gray */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+    --container-width: 1200px;
+    --transition-speed: 0.3s;
+}
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color var(--transition-speed);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    color: var(--text-color);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    padding-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color);
+}
+
+/* Utility Classes */
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--accent-color);
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    border: 2px solid var(--accent-color);
+    transition: all var(--transition-speed);
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: var(--accent-hover);
+    border-color: var(--accent-hover);
+    color: #fff;
+}
+
+/* Parallax Effect */
+.parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+/* Overlay for parallax backgrounds */
+.parallax::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 43, 73, 0.7);
+    /* Deep Navy overlay */
+    z-index: 1;
+}
+
+.parallax>* {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* Navigation */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--navy-bg);
+    /* Navy Header */
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: padding 0.3s ease;
+    padding: 15px 0;
+}
+
+header.scrolled {
+    padding: 10px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    /* White logo on Navy header */
+    letter-spacing: -0.5px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links li a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    color: #e5e5e5;
+    /* Light gray links on Navy */
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: width var(--transition-speed);
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+    color: var(--accent-color);
+    /* Deep Gold */
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px 0;
+    transition: 0.3s;
+}
+
+/* Mobile Nav */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background-color: var(--navy-bg);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+        transition: 0.3s;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--navy-bg);
+    padding: 0 20px;
+    padding-top: 80px;
+    background-image: url('../assets/images/hero.jpg');
+}
+
+.hero-content {
+    max-width: 800px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s forwards 0.5s;
+    color: #fff;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: #e5e5e5;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Page Headers Parallax */
+.page-header {
+    padding: 120px 0;
+    text-align: center;
+    color: #fff;
+}
+
+.page-header h1 {
+    margin-bottom: 0;
+    color: #fff;
+    font-size: 3rem;
+}
+
+/* Why Choose Us - Off-White Background */
+.why-choose-us {
+    padding: 100px 0;
+    background-color: #F8F8F8 !important;
+    /* Off-White */
+    color: var(--text-color);
+}
+
+.why-choose-us .section-title {
+    color: var(--navy-bg);
+    /* Navy Title */
+}
+
+.why-choose-us .section-title::after {
+    background-color: var(--accent-color);
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    border-bottom: 1px solid #e0e0e0;
+    /* Light gray border */
+    transition: background-color 0.3s;
+}
+
+.feature-item:hover {
+    background-color: #fff;
+    /* White on hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    /* Subtle shadow on hover */
+}
+
+.feature-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    color: var(--navy-bg);
+    /* Navy headings */
+}
+
+.feature-content p {
+    color: var(--text-color);
+    /* Charcoal text */
+    font-size: 1rem;
+}
+
+.feature-icon i {
+    color: var(--accent-color);
+}
+
+/* Expertise List */
+.expertise-list-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.expertise-item-row {
+    background: #fff;
+    padding: 40px;
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--navy-bg);
+    /* Navy accent on left */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.expertise-item-row:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transform: translateX(10px);
+}
+
+.expertise-item-row h3 {
+    font-size: 1.8rem;
+    color: var(--navy-bg);
+    /* Navy title */
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.expertise-item-row h3 i {
+    color: var(--accent-color);
+    /* Gold Icon */
+}
+
+.expertise-item-row p {
+    font-size: 1.05rem;
+    color: var(--text-color);
+    line-height: 1.7;
+}
+
+/* Team & Articles Styling */
+.team-card,
+.article-card {
+    background: #fff;
+    border: 1px solid var(--border-color);
+}
+
+.team-info h3,
+.article-content h2 {
+    color: var(--navy-bg);
+    /* Navy names/titles */
+}
+
+.read-more {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.read-more:hover {
+    color: var(--accent-hover);
+}
+
+
+/* Footer - Dark Navy */
+footer {
+    background-color: var(--navy-bg);
+    color: #fff;
+    padding: 60px 0 20px;
+    border-top: 5px solid var(--accent-color);
+}
+
+.footer-col h4 {
+    color: var(--accent-color);
+}
+
+.footer-col ul li a {
+    color: #e5e5e5;
+}
+
+.footer-col ul li a:hover {
+    color: var(--accent-color);
+    padding-left: 5px;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    color: #aaa;
+    font-size: 0.9rem;
+}
