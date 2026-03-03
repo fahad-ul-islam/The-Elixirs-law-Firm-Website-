@@ -1,11 +1,15 @@
 module.exports = {
-  content: ['./*.html'],
+  content: ['./*.html', './js/**/*.js'],
   theme: {
     extend: {
       colors: {
         navy: {
           DEFAULT: '#0a192f',
           light: '#112240',
+        },
+        'navy-alt': {
+          DEFAULT: '#1A2B49',
+          light: '#243b61',
         },
         brown: {
           DEFAULT: '#3E2723',
