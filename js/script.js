@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Close when clicking outside
         document.addEventListener('click', (e) => {
-            if (!mobileNav.contains(e.target) && e.target !== mobileMenuButton) {
+            if (!mobileNav.contains(e.target) && !mobileMenuButton.contains(e.target)) {
                 closeMobileMenu();
             }
         });
