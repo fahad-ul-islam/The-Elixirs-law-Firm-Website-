@@ -3,10 +3,19 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Real Estate Law services at The Elixirs Law Firm — expert legal counsel for property transactions, title disputes, and real estate litigation in Pakistan.">
+    <meta property="og:title" content="Real Estate Law - The Elixirs Law Firm">
+    <meta property="og:description" content="Real Estate Law services at The Elixirs Law Firm — expert legal counsel for property transactions, title disputes, and real estate litigation in Pakistan.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://theelixirslawfirm.com/real-estate.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://theelixirslawfirm.com/real-estate.html">
     <title>Real Estate Law - The Elixirs Law Firm</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- TODO: Replace cdn.tailwindcss.com with compiled CSS for production -->
     <!-- Google Fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap"
@@ -97,6 +106,8 @@
 </head>
 
 <body class="text-[#2C2C2C] font-sans antialiased" style="background-image: url('./assets/images/team-section-bg.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-[9999] focus:bg-[#CDA34F] focus:text-[#0a192f] focus:px-4 focus:py-2 focus:text-sm focus:font-bold">Skip to main content</a>
+
 
     <!-- 1. Architectural Header -->
     <header class="fixed top-0 w-full z-50 bg-[#0a192f] h-32 shadow-2xl border-b border-white/5">
@@ -132,7 +143,7 @@
             </nav>
 
             <!-- Mobile Menu Button -->
-            <button class="xl:hidden text-white focus:outline-none hamburger">
+            <button id="mobile-menu-button" class="xl:hidden text-white focus:outline-none" aria-label="Open navigation menu" aria-expanded="false">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
                     </path>
@@ -141,7 +152,7 @@
         </div>
     </header>
 
-        <main class="pt-40 pb-20 fade-in-section is-visible">
+        <main id="main-content" class="pt-40 pb-20 fade-in-section is-visible">
         <div class="container mx-auto px-6 max-w-4xl bg-white p-10 md:p-16 shadow-lg border border-[#E5E5E5] relative">
             <div class="absolute top-0 left-0 w-full h-2 bg-navy"></div>
             
@@ -265,8 +276,8 @@
                         <li class="group">
                             <span
                                 class="block text-xs uppercase text-gold mb-1 group-hover:text-white transition-colors">Cell Phone & WhatsApp</span>
-                            <span class="text-white text-sm">0312-4604786</span><br>
-                            <span class="text-white text-sm">0331-5052838</span>
+                            <span class="text-white text-sm"><a href="tel:+923124604786" class="hover:underline">0312-4604786</a></span><br>
+                            <span class="text-white text-sm"><a href="tel:+923315052838" class="hover:underline">0331-5052838</a></span>
                         </li>
                         <li class="group">
                             <span
@@ -280,6 +291,10 @@
             <div
                 class="border-t border-white/5 mt-20 pt-10 text-center text-xs tracking-[0.2em] uppercase text-gray-600">
                 <p>&copy; 2026 The Elixirs Law Firm. All Rights Reserved.</p>
+                <div class="mt-4 flex justify-center gap-6 text-xs">
+                    <a href="./privacy-policy.html" class="hover:text-gold transition-colors">Privacy Policy</a>
+                    <a href="./disclaimer.html" class="hover:text-gold transition-colors">Disclaimer</a>
+                </div>
             </div>
         </div>
     </footer>

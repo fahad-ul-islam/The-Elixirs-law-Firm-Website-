@@ -3,10 +3,19 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Elixirs Law Firm — Premier legal representation in Islamabad &amp; Rawalpindi. Expertise in Consumer Protection, Criminal, Civil, Corporate, Constitutional &amp; Banking Law. Led by the youngest Supreme Court advocate in Pakistan.">
+    <meta property="og:title" content="The Elixirs Law Firm - Precision in Advocacy">
+    <meta property="og:description" content="The Elixirs Law Firm — Premier legal representation in Islamabad &amp; Rawalpindi. Expertise in Consumer Protection, Criminal, Civil, Corporate, Constitutional &amp; Banking Law. Led by the youngest Supreme Court advocate in Pakistan.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://theelixirslawfirm.com/index.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://theelixirslawfirm.com/index.html">
     <title>The Elixirs Law Firm - Precision in Advocacy</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- TODO: Replace cdn.tailwindcss.com with compiled CSS for production -->
     <!-- Google Fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap"
@@ -26,8 +35,8 @@
                             light: '#4E342E',
                         },
                         gold: {
-                            DEFAULT: '#d4af37',
-                            light: '#f1c40f',
+                            DEFAULT: '#CDA34F',
+                            light: '#CDA34F',
                         }
                     },
                     fontFamily: {
@@ -41,16 +50,58 @@
             }
         }
     </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LegalService",
+      "name": "The Elixirs Law Firm",
+      "description": "Premier legal representation in Islamabad and Rawalpindi, Pakistan",
+      "url": "https://theelixirslawfirm.com",
+      "telephone": ["+923124604786", "+923315052838"],
+      "email": "the.elixirs.law.firm@gmail.com",
+      "address": [
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "Flat No. 1, First Floor, Plaza 163, Mateen Arcade, Bahria Civic Centre",
+          "addressLocality": "Islamabad",
+          "addressRegion": "Islamabad Capital Territory",
+          "addressCountry": "PK"
+        },
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "Chamber 95, Ground Floor, Justice Iftikhar Ch Block, District Courts",
+          "addressLocality": "Rawalpindi",
+          "addressRegion": "Punjab",
+          "addressCountry": "PK"
+        }
+      ],
+      "founder": {
+        "@type": "Person",
+        "name": "Mr. Malik Muhammad Asif Nawaz",
+        "jobTitle": "Advocate Supreme Court of Pakistan"
+      },
+      "areaServed": "Pakistan",
+      "priceRange": "$$"
+    }
+    </script>
     <style>
         /* Custom Styles */
         .glass-brown {
             background: rgba(62, 39, 35, 0.95);
             /* High opacity brown */
         }
+
+        @media (max-width: 768px) {
+            .bg-fixed {
+                background-attachment: scroll !important;
+            }
+        }
     </style>
 </head>
 
 <body class="bg-navy text-white font-sans antialiased">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-[9999] focus:bg-[#CDA34F] focus:text-[#0a192f] focus:px-4 focus:py-2 focus:text-sm focus:font-bold">Skip to main content</a>
+
 
     <!-- 1. Architectural Header -->
     <header class="fixed top-0 w-full z-50 bg-navy h-32 shadow-2xl border-b border-white/5">
@@ -87,7 +138,7 @@
             </nav>
 
             <!-- Mobile Menu Button -->
-            <button class="xl:hidden text-white focus:outline-none">
+            <button id="mobile-menu-button" class="xl:hidden text-white focus:outline-none" aria-label="Open navigation menu" aria-expanded="false">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
                     </path>
@@ -97,7 +148,7 @@
     </header>
 
     <!-- 2. Hero Section (Cover) - SHORTENED HEIGHT -->
-    <section class="relative h-[600px] flex items-end justify-start bg-cover bg-center mt-32"
+    <section id="main-content" class="relative h-[600px] flex items-end justify-start bg-cover bg-center mt-32"
         style="background-image: url('./assets/images/hero-bg.jpg');">
         <div class="absolute inset-0 bg-navy/40"></div> <!-- Dark overlay -->
 
@@ -251,7 +302,7 @@
                 <div class="flex flex-col items-center text-center group">
                     <div class="w-full h-64 overflow-hidden mb-8 border border-white/10">
                         <!-- Note: strict extension usage .jpeg for trust-1 -->
-                        <img src="./assets/images/trust-1.jpeg" alt="Trust"
+                        <img loading="lazy" src="./assets/images/trust-1.jpeg" alt="The Elixirs Law Firm team demonstrating client trust and dedication"
                             class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
                     </div>
                     <p class="text-2xl font-serif text-white italic">"Trust is practiced, not promised."</p>
@@ -260,7 +311,7 @@
                 <!-- Column 2 -->
                 <div class="flex flex-col items-center text-center group">
                     <div class="w-full h-64 overflow-hidden mb-8 border border-white/10">
-                        <img src="./assets/images/trust-2.jpg" alt="Clarity"
+                        <img loading="lazy" src="./assets/images/trust-2.jpg" alt="Legal consultation providing clarity to clients at The Elixirs"
                             class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
                     </div>
                     <p class="text-2xl font-serif text-white italic">"Clarity before commitment."</p>
@@ -269,7 +320,7 @@
                 <!-- Column 3 -->
                 <div class="flex flex-col items-center text-center group">
                     <div class="w-full h-64 overflow-hidden mb-8 border border-white/10">
-                        <img src="./assets/images/trust-3.jpg" alt="Stewardship"
+                        <img loading="lazy" src="./assets/images/trust-3.jpg" alt="Advocates at The Elixirs providing stewardship in legal matters"
                             class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
                     </div>
                     <p class="text-2xl font-serif text-white italic">"More than representation: Stewardship."</p>
@@ -355,8 +406,8 @@
                         <li class="group">
                             <span
                                 class="block text-xs uppercase text-gold mb-1 group-hover:text-white transition-colors">Cell Phone & WhatsApp</span>
-                            <span class="text-white text-sm">0312-4604786</span><br>
-                            <span class="text-white text-sm">0331-5052838</span>
+                            <span class="text-white text-sm"><a href="tel:+923124604786" class="hover:underline">0312-4604786</a></span><br>
+                            <span class="text-white text-sm"><a href="tel:+923315052838" class="hover:underline">0331-5052838</a></span>
                         </li>
                         <li class="group">
                             <span
@@ -372,10 +423,15 @@
             <div
                 class="border-t border-white/5 mt-20 pt-10 text-center text-xs tracking-[0.2em] uppercase text-gray-600">
                 <p>&copy; 2026 The Elixirs Law Firm. All Rights Reserved.</p>
+                <div class="mt-4 flex justify-center gap-6 text-xs">
+                    <a href="./privacy-policy.html" class="hover:text-gold transition-colors">Privacy Policy</a>
+                    <a href="./disclaimer.html" class="hover:text-gold transition-colors">Disclaimer</a>
+                </div>
             </div>
         </div>
     </footer>
 
+    <script src="./js/script.js"></script>
 </body>
 
 </html>

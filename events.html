@@ -3,10 +3,19 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Events and legal seminars hosted by The Elixirs Law Firm — stay updated on the latest legal developments in Pakistan.">
+    <meta property="og:title" content="Events & Gallery - The Elixirs Law Firm">
+    <meta property="og:description" content="Events and legal seminars hosted by The Elixirs Law Firm — stay updated on the latest legal developments in Pakistan.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://theelixirslawfirm.com/events.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://theelixirslawfirm.com/events.html">
     <title>Events & Gallery - The Elixirs Law Firm</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- TODO: Replace cdn.tailwindcss.com with compiled CSS for production -->
     <!-- Google Fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap"
@@ -26,8 +35,8 @@
                             light: '#4E342E',
                         },
                         gold: {
-                            DEFAULT: '#d4af37',
-                            light: '#f1c40f',
+                            DEFAULT: '#CDA34F',
+                            light: '#CDA34F',
                         }
                     },
                     fontFamily: {
@@ -59,7 +68,7 @@
 
         .gallery-img:hover {
             filter: sepia(0) saturate(1.15) brightness(1.02) contrast(1.02);
-            border: 3px solid #d4af37;
+            border: 3px solid #CDA34F;
             transform: scale(1.02);
             box-shadow: 0 8px 30px rgba(212, 175, 55, 0.18);
         }
@@ -108,7 +117,7 @@
             max-width: 90vw;
             max-height: 78vh;
             object-fit: contain;
-            border: 2px solid #d4af37;
+            border: 2px solid #CDA34F;
             box-shadow: 0 0 60px rgba(212, 175, 55, 0.15);
         }
 
@@ -128,7 +137,7 @@
             top: 1.5rem;
             right: 2rem;
             font-size: 2.2rem;
-            color: #d4af37;
+            color: #CDA34F;
             cursor: pointer;
             transition: transform 0.3s ease;
             z-index: 10000;
@@ -148,7 +157,7 @@
             top: 50%;
             transform: translateY(-50%);
             font-size: 2.5rem;
-            color: #d4af37;
+            color: #CDA34F;
             cursor: pointer;
             background: rgba(10, 25, 47, 0.6);
             border: 1px solid rgba(212, 175, 55, 0.3);
@@ -163,7 +172,7 @@
 
         .lightbox-nav:hover {
             background: rgba(212, 175, 55, 0.15);
-            border-color: #d4af37;
+            border-color: #CDA34F;
         }
 
         .lightbox-prev {
@@ -181,17 +190,17 @@
             top: 0;
             bottom: 0;
             width: 2px;
-            background: linear-gradient(to bottom, transparent, #d4af37, transparent);
+            background: linear-gradient(to bottom, transparent, #CDA34F, transparent);
             transform: translateX(-50%);
         }
 
         .timeline-dot {
             width: 16px;
             height: 16px;
-            background: #d4af37;
+            background: #CDA34F;
             border-radius: 50%;
             border: 3px solid #0a192f;
-            box-shadow: 0 0 0 2px #d4af37;
+            box-shadow: 0 0 0 2px #CDA34F;
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
@@ -247,8 +256,8 @@
             top: 50%;
             transform: translateY(-50%);
             background: rgba(10, 25, 47, 0.85);
-            border: 1px solid #d4af37;
-            color: #d4af37;
+            border: 1px solid #CDA34F;
+            color: #CDA34F;
             width: 48px;
             height: 48px;
             display: flex;
@@ -291,15 +300,15 @@
         }
 
         .carousel-dot.active {
-            background: #d4af37;
-            border-color: #d4af37;
+            background: #CDA34F;
+            border-color: #CDA34F;
         }
 
         /* Section divider */
         .section-divider {
             width: 80px;
             height: 2px;
-            background: linear-gradient(to right, transparent, #d4af37, transparent);
+            background: linear-gradient(to right, transparent, #CDA34F, transparent);
             margin: 0 auto;
         }
 
@@ -324,7 +333,7 @@
             display: block;
             width: 60px;
             height: 2px;
-            background: #d4af37;
+            background: #CDA34F;
             margin-top: 1rem;
         }
 
@@ -367,6 +376,8 @@
 </head>
 
 <body class="bg-navy text-white font-sans antialiased">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-[9999] focus:bg-[#CDA34F] focus:text-[#0a192f] focus:px-4 focus:py-2 focus:text-sm focus:font-bold">Skip to main content</a>
+
 
     <!-- 1. Architectural Header -->
     <header class="fixed top-0 w-full z-50 bg-navy h-32 shadow-2xl border-b border-white/5">
@@ -406,7 +417,7 @@
             </nav>
 
             <!-- Mobile Menu Button -->
-            <button id="mobileMenuBtn" class="xl:hidden text-white focus:outline-none">
+            <button id="mobile-menu-button" class="xl:hidden text-white focus:outline-none" aria-label="Open navigation menu" aria-expanded="false">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M4 6h16M4 12h16M4 18h16"></path>
@@ -428,11 +439,11 @@
     </div>
 
     <!-- ==================== HERO SECTION ==================== -->
-    <section class="relative h-[500px] flex items-center justify-center bg-cover bg-center mt-32"
+    <section id="main-content" class="relative h-[500px] flex items-center justify-center bg-cover bg-center mt-32"
         style="background-image: url('./assets/images/hero-bg.jpg');">
         <div class="absolute inset-0 bg-navy/70"></div>
         <div class="relative z-10 text-center max-w-4xl px-6">
-            <p class="text-[#d4af37] text-base uppercase tracking-[0.3em] font-[900] mb-5">Gallery & Milestones</p>
+            <p class="text-[#CDA34F] text-base uppercase tracking-[0.3em] font-[900] mb-5">Gallery & Milestones</p>
             <h1 class="text-5xl md:text-7xl font-serif text-white mb-5 leading-none drop-shadow-xl" style="font-weight: 900;">
                 Events &<br>
                 <span class="text-gold">Recognitions</span>
@@ -450,7 +461,7 @@
             <div class="container mx-auto px-6 md:px-12">
                 <!-- Section Header -->
                 <div class="text-center mb-16">
-                    <p class="text-[#d4af37] text-xs uppercase tracking-[0.35em] font-[800] mb-3">Section I</p>
+                    <p class="text-[#CDA34F] text-xs uppercase tracking-[0.35em] font-[800] mb-3">Section I</p>
                     <h2 class="text-3xl md:text-4xl font-serif text-white heading-accent heading-accent-center">
                         Academic & Thought Leadership</h2>
                     <p class="text-gray-400 mt-6 max-w-2xl mx-auto text-base font-light leading-relaxed">
@@ -464,7 +475,7 @@
 
                     <!-- 16.jpeg -->
                     <div class="gallery-card group bg-navy-light">
-                        <img src="./assets/images/16.jpeg" alt="Delivering lecture in HCBA RWP"
+                        <img loading="lazy" src="./assets/images/16.jpeg" alt="Delivering lecture in HCBA RWP"
                             class="gallery-img w-full h-[350px] object-cover"
                             data-caption="Delivering lecture in HCBA RWP.">
                         <div
@@ -478,7 +489,7 @@
 
                     <!-- 14.jpeg -->
                     <div class="gallery-card group bg-navy-light">
-                        <img src="./assets/images/14.jpeg"
+                        <img loading="lazy" src="./assets/images/14.jpeg"
                             alt="Receiving shield from HOD Mass Communication department NUML"
                             class="gallery-img w-full h-[350px] object-cover"
                             data-caption="Receiving shield from HOD Mass Communication department NUML after delivering lecture on &ldquo;Sexual Harassment at Workplace&rdquo;.">
@@ -494,7 +505,7 @@
 
                     <!-- 11.jpeg -->
                     <div class="gallery-card group bg-navy-light">
-                        <img src="./assets/images/11.jpeg"
+                        <img loading="lazy" src="./assets/images/11.jpeg"
                             alt="Receiving shield for lecture on Dimensions of a Rape Trial"
                             class="gallery-img w-full h-[350px] object-cover"
                             data-caption="Receiving shield for delivering lecture on &ldquo;Dimensions of a Rape Trial&rdquo; from legal student association &ldquo;Legal Wave&rdquo;.">
@@ -510,7 +521,7 @@
 
                     <!-- 09.jpeg -->
                     <div class="gallery-card group bg-navy-light">
-                        <img src="./assets/images/9.jpeg"
+                        <img loading="lazy" src="./assets/images/9.jpeg"
                             alt="Receiving shield for delivering lectures in the bar"
                             class="gallery-img w-full h-[350px] object-cover"
                             data-caption="Receiving a shield for delivering lectures in the bar from the Honourable Justice Sohail Nasir, President, and Secretary of DBA RWP.">
@@ -538,7 +549,7 @@
             <div class="container mx-auto px-6 md:px-12">
                 <!-- Section Header -->
                 <div class="text-center mb-16">
-                    <p class="text-[#d4af37] text-xs uppercase tracking-[0.35em] font-[800] mb-3">Section II</p>
+                    <p class="text-[#CDA34F] text-xs uppercase tracking-[0.35em] font-[800] mb-3">Section II</p>
                     <h2 class="text-3xl md:text-4xl font-serif text-white heading-accent heading-accent-center">Firm
                         Culture</h2>
                     <p class="text-gray-400 mt-6 max-w-2xl mx-auto text-base font-light leading-relaxed">
@@ -562,7 +573,7 @@
                             <!-- Slide 1: 02.jpeg -->
                             <div class="carousel-slide">
                                 <div class="gallery-card">
-                                    <img src="./assets/images/2.jpeg"
+                                    <img loading="lazy" src="./assets/images/2.jpeg"
                                         alt="Welcome hi-tea &mdash; Glimpse 1"
                                         class="gallery-img w-full h-[420px] object-cover"
                                         data-caption="Glimpses from the welcome hi-tea held in honour of newly joined associates of The Elixirs Law Firm.">
@@ -579,7 +590,7 @@
                             <!-- Slide 2: 03.jpeg -->
                             <div class="carousel-slide">
                                 <div class="gallery-card">
-                                    <img src="./assets/images/3.jpeg"
+                                    <img loading="lazy" src="./assets/images/3.jpeg"
                                         alt="Welcome hi-tea &mdash; Glimpse 2"
                                         class="gallery-img w-full h-[420px] object-cover"
                                         data-caption="Glimpses from the welcome hi-tea held in honour of newly joined associates of The Elixirs Law Firm.">
@@ -596,7 +607,7 @@
                             <!-- Slide 3: 04.jpeg -->
                             <div class="carousel-slide">
                                 <div class="gallery-card">
-                                    <img src="./assets/images/4.jpeg"
+                                    <img loading="lazy" src="./assets/images/4.jpeg"
                                         alt="Welcome hi-tea &mdash; Glimpse 3"
                                         class="gallery-img w-full h-[420px] object-cover"
                                         data-caption="Glimpses from the welcome hi-tea held in honour of newly joined associates of The Elixirs Law Firm.">
@@ -625,7 +636,7 @@
             style="background-image: url('./assets/images/12.jpeg');">
             <div class="absolute inset-0 bg-navy/60"></div>
             <div class="relative z-10 text-center max-w-3xl px-6">
-                <p class="text-[#d4af37] text-xs uppercase tracking-[0.35em] font-[800] mb-4">Section III</p>
+                <p class="text-[#CDA34F] text-xs uppercase tracking-[0.35em] font-[800] mb-4">Section III</p>
                 <h2 class="text-3xl md:text-5xl font-serif text-white mb-6">The Scholar's Corner</h2>
                 <div class="section-divider mb-8"></div>
                 <blockquote class="text-xl md:text-2xl text-gray-200 font-light italic leading-relaxed"
@@ -640,13 +651,13 @@
             <div class="container mx-auto px-6 md:px-12">
                 <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
                     <div class="w-full md:w-1/2">
-                        <img src="./assets/images/10.jpeg"
+                        <img loading="lazy" src="./assets/images/10.jpeg"
                             alt="Sessions Court Library, Gilgit Baltistan"
                             class="gallery-img w-full h-[400px] object-cover"
                             data-caption="Sitting in the Sessions Court Library, Gilgit Baltistan.">
                     </div>
                     <div class="w-full md:w-1/2">
-                        <p class="text-[#d4af37] text-xs uppercase tracking-[0.3em] font-[800] mb-3">Research &
+                        <p class="text-[#CDA34F] text-xs uppercase tracking-[0.3em] font-[800] mb-3">Research &
                             Scholarship</p>
                         <h3 class="text-2xl md:text-3xl font-serif text-white mb-6 heading-accent">Sessions Court
                             Library</h3>
@@ -671,7 +682,7 @@
             <div class="container mx-auto px-6 md:px-12">
                 <!-- Section Header -->
                 <div class="text-center mb-16">
-                    <p class="text-[#d4af37] text-xs uppercase tracking-[0.35em] font-[800] mb-3">Section IV</p>
+                    <p class="text-[#CDA34F] text-xs uppercase tracking-[0.35em] font-[800] mb-3">Section IV</p>
                     <h2 class="text-3xl md:text-4xl font-serif text-white heading-accent heading-accent-center">
                         Courtroom Experience & Judicial Presence</h2>
                     <p class="text-gray-400 mt-6 max-w-2xl mx-auto text-base font-light leading-relaxed">
@@ -685,13 +696,13 @@
 
                     <!-- 17.jpeg & 20.jpeg: Grouped &mdash; Chief Justice Chamber Portraits -->
                     <div class="gallery-card bg-navy-light">
-                        <img src="./assets/images/17.jpeg"
+                        <img loading="lazy" src="./assets/images/17.jpeg"
                             alt="Portrait from Chief Justice Chamber, GB Chief Court"
                             class="gallery-img w-full h-[400px] object-cover"
                             data-caption="Portrait from the Chief Justice Chamber, GB Chief Court.">
                         <div
                             class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-navy via-navy/80 to-transparent p-6 pt-16 z-[2]">
-                            <p class="text-[#d4af37] text-xs uppercase tracking-[0.25em] font-[700] mb-1">Chief
+                            <p class="text-[#CDA34F] text-xs uppercase tracking-[0.25em] font-[700] mb-1">Chief
                                 Justice Chamber</p>
                             <p class="text-white text-sm font-light"
                                 style="font-family: 'Cormorant Garamond', serif; font-size: 1.05rem;">
@@ -701,13 +712,13 @@
                     </div>
 
                     <div class="gallery-card bg-navy-light">
-                        <img src="./assets/images/20.jpeg"
+                        <img loading="lazy" src="./assets/images/20.jpeg"
                             alt="Portrait from Chief Justice Chamber, GB Chief Court"
                             class="gallery-img w-full h-[400px] object-cover"
                             data-caption="Portrait from the Chief Justice Chamber, GB Chief Court.">
                         <div
                             class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-navy via-navy/80 to-transparent p-6 pt-16 z-[2]">
-                            <p class="text-[#d4af37] text-xs uppercase tracking-[0.25em] font-[700] mb-1">Chief
+                            <p class="text-[#CDA34F] text-xs uppercase tracking-[0.25em] font-[700] mb-1">Chief
                                 Justice Chamber</p>
                             <p class="text-white text-sm font-light"
                                 style="font-family: 'Cormorant Garamond', serif; font-size: 1.05rem;">
@@ -721,13 +732,13 @@
 
                 <div class="max-w-6xl mx-auto mt-12 flex flex-col md:flex-row items-center gap-12">
                     <div class="w-full md:w-1/2">
-                        <img src="./assets/images/15.jpeg"
+                        <img loading="lazy" src="./assets/images/15.jpeg"
                             alt="Sessions Court Chillas &mdash; State Vs Anbia"
                             class="gallery-img w-full h-[400px] object-cover"
                             data-caption="Sessions Court Chillas; captured during the murder trial of State Vs Anbia etc.">
                     </div>
                     <div class="w-full md:w-1/2">
-                        <p class="text-[#d4af37] text-xs uppercase tracking-[0.3em] font-[800] mb-3">Sessions
+                        <p class="text-[#CDA34F] text-xs uppercase tracking-[0.3em] font-[800] mb-3">Sessions
                             Court Chillas</p>
                         <h3 class="text-2xl md:text-3xl font-serif text-white mb-6 heading-accent">State Vs Anbia</h3>
                         <p class="text-gray-300 text-base font-light leading-relaxed"
@@ -741,13 +752,13 @@
                 <!-- 18.jpeg: Side-by-side layout -->
                 <div class="max-w-6xl mx-auto mt-12 flex flex-col md:flex-row items-center gap-12">
                     <div class="w-full md:w-1/2">
-                        <img src="./assets/images/18.jpeg"
+                        <img loading="lazy" src="./assets/images/18.jpeg"
                             alt="Sessions Court Chillas &mdash; State Vs Ghandal Shah"
                             class="gallery-img w-full h-[400px] object-cover"
                             data-caption="Sessions Court Chillas; captured during the high-profile murder trial of State Vs Ghandal Shah etc.">
                     </div>
                     <div class="w-full md:w-1/2">
-                        <p class="text-[#d4af37] text-xs uppercase tracking-[0.3em] font-[800] mb-3">Sessions
+                        <p class="text-[#CDA34F] text-xs uppercase tracking-[0.3em] font-[800] mb-3">Sessions
                             Court Chillas</p>
                         <h3 class="text-2xl md:text-3xl font-serif text-white mb-6 heading-accent">State Vs Ghandal Shah</h3>
                         <p class="text-gray-300 text-base font-light leading-relaxed"
@@ -772,7 +783,7 @@
             <div class="container mx-auto px-6 md:px-12">
                 <!-- Section Header -->
                 <div class="text-center mb-20">
-                    <p class="text-[#d4af37] text-xs uppercase tracking-[0.35em] font-[800] mb-3">Section V</p>
+                    <p class="text-[#CDA34F] text-xs uppercase tracking-[0.35em] font-[800] mb-3">Section V</p>
                     <h2 class="text-3xl md:text-4xl font-serif text-white heading-accent heading-accent-center">
                         Professional Milestones</h2>
                     <p class="text-gray-400 mt-6 max-w-2xl mx-auto text-base font-light leading-relaxed">
@@ -791,7 +802,7 @@
                         <!-- Left Content -->
                         <div class="w-full md:w-1/2 md:pr-16 text-right mb-6 md:mb-0">
                             <span
-                                class="inline-block text-[#d4af37] text-xs uppercase tracking-[0.3em] font-[800] mb-2 border border-[#d4af37]/30 px-4 py-1">2019</span>
+                                class="inline-block text-[#CDA34F] text-xs uppercase tracking-[0.3em] font-[800] mb-2 border border-[#CDA34F]/30 px-4 py-1">2019</span>
                             <p class="text-gray-300 text-base font-light leading-relaxed mt-3"
                                 style="font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;">
                                 Receiving shield for participating in the annual mushaira held at DBA RWP from Member
@@ -802,7 +813,7 @@
                         <div class="timeline-dot hidden md:block"></div>
                         <!-- Right Image -->
                         <div class="w-full md:w-1/2 md:pl-16">
-                            <img src="./assets/images/01.jpeg"
+                            <img loading="lazy" src="./assets/images/01.jpeg"
                                 alt="Receiving shield at annual mushaira DBA RWP"
                                 class="gallery-img w-full h-[300px] object-cover"
                                 data-caption="Receiving shield for participating in the annual mushaira held at DBA RWP from Member Punjab Bar Council Qausain Faisal Mufti ASC & S.A Mahmood Sadozai (2019).">
@@ -814,7 +825,7 @@
                         <!-- Right Content -->
                         <div class="w-full md:w-1/2 md:pl-16 text-left mb-6 md:mb-0">
                             <span
-                                class="inline-block text-[#d4af37] text-xs uppercase tracking-[0.3em] font-[800] mb-2 border border-[#d4af37]/30 px-4 py-1">Milestone</span>
+                                class="inline-block text-[#CDA34F] text-xs uppercase tracking-[0.3em] font-[800] mb-2 border border-[#CDA34F]/30 px-4 py-1">Milestone</span>
                             <p class="text-gray-300 text-base font-light leading-relaxed mt-3"
                                 style="font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;">
                                 Receiving flower bouquet from a fellow lawyer on being enrolled as an Advocate of the
@@ -825,7 +836,7 @@
                         <div class="timeline-dot hidden md:block"></div>
                         <!-- Left Image -->
                         <div class="w-full md:w-1/2 md:pr-16">
-                            <img src="./assets/images/13.jpeg"
+                            <img loading="lazy" src="./assets/images/13.jpeg"
                                 alt="Enrolled as Advocate of the Supreme Court of Pakistan"
                                 class="gallery-img w-full h-[300px] object-cover"
                                 data-caption="Receiving flower bouquet from a fellow lawyer on being enrolled as an Advocate of the Supreme Court of Pakistan.">
@@ -897,8 +908,8 @@
                         <li class="group">
                             <span
                                 class="block text-xs uppercase text-gold mb-1 group-hover:text-white transition-colors">Cell Phone & WhatsApp</span>
-                            <span class="text-white text-sm">0312-4604786</span><br>
-                            <span class="text-white text-sm">0331-5052838</span>
+                            <span class="text-white text-sm"><a href="tel:+923124604786" class="hover:underline">0312-4604786</a></span><br>
+                            <span class="text-white text-sm"><a href="tel:+923315052838" class="hover:underline">0331-5052838</a></span>
                         </li>
                         <li class="group">
                             <span
@@ -912,6 +923,10 @@
             <div
                 class="border-t border-white/5 mt-20 pt-10 text-center text-xs tracking-[0.2em] uppercase text-gray-600">
                 <p>&copy; 2026 The Elixirs Law Firm. All Rights Reserved.</p>
+                <div class="mt-4 flex justify-center gap-6 text-xs">
+                    <a href="./privacy-policy.html" class="hover:text-gold transition-colors">Privacy Policy</a>
+                    <a href="./disclaimer.html" class="hover:text-gold transition-colors">Disclaimer</a>
+                </div>
             </div>
         </div>
     </footer>
@@ -921,7 +936,7 @@
         <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">&times;</button>
         <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image">&#8249;</button>
         <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next image">&#8250;</button>
-        <img src="" alt="" id="lightboxImg">
+        <img loading="lazy" src="" alt="" id="lightboxImg">
         <p class="lightbox-caption" id="lightboxCaption"></p>
     </div>
 
@@ -1078,16 +1093,10 @@
                 updateCarousel();
             });
 
-            // ===== Mobile Menu Toggle =====
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const mobileNav = document.getElementById('mobileNav');
-            if (mobileMenuBtn && mobileNav) {
-                mobileMenuBtn.addEventListener('click', () => {
-                    mobileNav.classList.toggle('active');
-                });
-            }
+            // Mobile Menu Toggle is handled by js/script.js
         });
     </script>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
