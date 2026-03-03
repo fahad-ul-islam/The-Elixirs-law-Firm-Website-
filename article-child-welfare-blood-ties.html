@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Child Welfare vs. Blood Ties - The Elixirs Law Firm</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            DEFAULT: '#0a192f',
+                            light: '#112240',
+                        },
+                        gold: {
+                            DEFAULT: '#CDA34F',
+                        },
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Lato', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .fade-in-section {
+            opacity: 0;
+            transition: opacity 0.6s ease-in-out;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body class="text-[#2C2C2C] font-sans antialiased bg-parallax"
+    style="background-image: url('./assets/images/team-section-bg.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 bg-[#0a192f] h-32 shadow-2xl border-b border-white/5">
+        <div class="container mx-auto px-8 h-full flex justify-between items-center">
+            <a href="index.html" class="flex flex-col items-center justify-center hover:opacity-80 transition-opacity uppercase mb-1 w-max">
+                <span class="text-[34px] whitespace-nowrap tracking-[0.1em] leading-none text-center" style="color: #9A7B3A; font-family: 'Cormorant Garamond', serif; font-weight: 800;">THE ELIXIRS</span>
+                <!-- Added ml-[0.3em] to counteract the right-pull of the tracking-[0.3em] for perfect visual centering -->
+                <span class="text-[12px] whitespace-nowrap tracking-[0.3em] text-white mt-1 ml-[0.3em] text-center" style="font-family: 'Lato', sans-serif; font-weight: 400;">LAW FIRM</span>
+            </a>
+            <nav class="hidden xl:flex space-x-8 items-center h-full">
+                <a href="index.html"
+                    class="text-white hover:text-[#9A7B3A] text-[12px] whitespace-nowrap uppercase tracking-[0.15em] transition-colors font-[800]">Home</a>
+                <a href="about.html"
+                    class="text-white hover:text-[#9A7B3A] text-[12px] whitespace-nowrap uppercase tracking-[0.15em] transition-colors font-[800]">About
+                    Us</a>
+                <a href="expertise.html"
+                    class="text-white hover:text-[#9A7B3A] text-[12px] whitespace-nowrap uppercase tracking-[0.15em] transition-colors font-[800]">Expertise</a>
+                <a href="team.html"
+                    class="text-white hover:text-[#9A7B3A] text-[12px] whitespace-nowrap uppercase tracking-[0.15em] transition-colors font-[800]">Team</a>
+                <a href="updates.html"
+                    class="text-white hover:text-[#9A7B3A] text-[12px] whitespace-nowrap uppercase tracking-[0.15em] transition-colors font-[800]">Landmark Cases</a>
+                <a href="articles.html"
+                    class="text-[#9A7B3A] text-[12px] whitespace-nowrap uppercase tracking-[0.15em] transition-colors font-[800]">Legal
+                    Articles</a>
+                <a href="events.html"
+                    class="text-white hover:text-[#9A7B3A] text-[12px] whitespace-nowrap uppercase tracking-[0.15em] transition-colors font-[800]">Events</a>
+                <a href="contact.html"
+                    class="bg-white text-[#0a192f] px-6 py-3 text-[11px] whitespace-nowrap uppercase tracking-widest font-[800] hover:bg-gold transition-all border-b-2 border-gold">Contact
+                    Us</a>
+            </nav>
+            <button class="xl:hidden text-white focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-40 pb-20 fade-in-section">
+        <div class="container mx-auto px-6 max-w-4xl bg-white p-10 md:p-16 shadow-lg border border-[#E5E5E5] relative">
+            <div class="absolute top-0 left-0 w-full h-2 bg-navy"></div>
+
+            <a href="articles.html"
+                class="inline-flex items-center text-gold text-sm font-bold uppercase tracking-widest hover:text-navy transition-colors mb-8">
+                &larr; Back to Articles
+            </a>
+
+            <h1 class="text-[26px] whitespace-nowrap md:text-4xl font-serif text-navy mb-8 leading-snug font-bold">Custody: Welfare as the Foundational
+                Stone &mdash; PLD 2022 SC 32</h1>
+
+            <div class="prose prose-lg max-w-none text-[#555] font-serif leading-relaxed">
+                <p class="mb-8"><strong>The Core Principle:</strong> Custody disputes are decided on the welfare of the
+                    minor, not mere blood relationships. Biological preference is rebuttable if welfare dictates
+                    otherwise.</p>
+
+                <h3 class="text-xl font-sans font-bold text-navy uppercase tracking-wide mb-4">The Exception to the Rule
+                </h3>
+                <p class="mb-10 text-[17px] italic text-[#666] border-l-4 border-gold pl-4 py-2 bg-[#f9f9f9]">In PLD
+                    2022 SC 32, custody was awarded to a maternal grandfather over a biological father because the
+                    father showed reluctance to assume full responsibility and lacked involvement in the minor&rsquo;s
+                    upbringing.</p>
+
+                <h3 class="text-xl font-sans font-bold text-navy uppercase tracking-wide mb-6 text-center">The
+                    Multifaceted Concept of Welfare</h3>
+                <div class="grid grid-cols-2 gap-6 mb-10 font-sans">
+                    <div
+                        class="bg-white border text-center border-[#E5E5E5] p-6 rounded-sm shadow-sm hover:border-gold transition-colors">
+                        <div
+                            class="w-12 h-12 bg-navy text-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-navy m-0 text-sm uppercase tracking-wide">Emotional Stability</h4>
+                    </div>
+                    <div
+                        class="bg-white border text-center border-[#E5E5E5] p-6 rounded-sm shadow-sm hover:border-gold transition-colors">
+                        <div
+                            class="w-12 h-12 bg-navy text-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                                </path>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-navy m-0 text-sm uppercase tracking-wide">Educational Continuity</h4>
+                    </div>
+                    <div
+                        class="bg-white border text-center border-[#E5E5E5] p-6 rounded-sm shadow-sm hover:border-gold transition-colors">
+                        <div
+                            class="w-12 h-12 bg-navy text-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-navy m-0 text-sm uppercase tracking-wide">Psychological Security</h4>
+                    </div>
+                    <div
+                        class="bg-white border text-center border-[#E5E5E5] p-6 rounded-sm shadow-sm hover:border-gold transition-colors">
+                        <div
+                            class="w-12 h-12 bg-navy text-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                                </path>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-navy m-0 text-sm uppercase tracking-wide">Physical Safety</h4>
+                    </div>
+                </div>
+
+                <div class="bg-navy p-6 flex flex-col items-center justify-center text-center font-sans">
+                    <p class="text-gold uppercase tracking-widest text-xs font-bold mb-2">Conclusion</p>
+                    <p class="text-white font-light text-[15px] m-0">Blood relation creates a presumption, but welfare
+                        creates the decision. Custody is a trust, not a trophy.</p>
+                </div>
+
+                <p class="mb-10 text-lg">The foundational stone of custody jurisprudence in Pakistan is unequivocally
+                    the welfare of the minor. While personal law rules regarding 'Hizanat' (custody) and guardianship
+                    provide an initial framework and establish presumptions based on blood ties and age, the Supreme
+                    Court in PLD 2022 SC 32 reiterated that these rules are subservient to the paramount consideration
+                    of the child's welfare. Courts exercise parental jurisdiction (quasi-parental authority) in these
+                    matters. If circumstances dictate that a biological parent is unfit, uninvolved, or incapable of
+                    providing a nurturing, stable, and safe environment, the court will not hesitate to award custody to
+                    grandparents or other relatives who can better serve the child's holistic needs. Blood ties,
+                    therefore, do not confer an absolute right; they are subject to the ultimate test of what is
+                    manifestly in the best interests of the minor.</p>
+
+                <hr class="border-[#E5E5E5] my-10">
+
+                <h3 class="text-2xl font-serif text-navy mb-6">Frequently Asked Questions</h3>
+                <div class="bg-[#F9F9F9] border border-[#E5E5E5] p-6 font-sans">
+                    <p class="font-bold text-navy mb-2 text-lg">Question: Does a biological father always have the top
+                        right to custody?</p>
+                    <p class="text-[#555] font-light text-[15px]">Answer: Ordinarily yes, but PLD 2022 SC 32 establishes
+                        that this right is subject to the child's welfare, which overrides technical legal rights or
+                        blood ties.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#050f1e] text-gray-400 py-24 border-t border-white/5">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+                <div>
+                    <h4
+                        class="text-white font-serif text-xl mb-8 tracking-[0.1em] uppercase border-l-2 border-gold pl-4">
+                        Resources</h4>
+                    <ul class="space-y-4 text-sm font-light tracking-wide">
+                        <li><a href="articles.html"
+                                class="hover:text-gold transition-colors block py-1 border-b border-white/5 hover:border-gold/30">Legal
+                                Articles</a></li>
+                        <li><a href="updates.html"
+                                class="hover:text-gold transition-colors block py-1 border-b border-white/5 hover:border-gold/30">Landmark Cases</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4
+                        class="text-white font-serif text-xl mb-8 tracking-[0.1em] uppercase border-l-2 border-gold pl-4">
+                        Company</h4>
+                    <ul class="space-y-4 text-sm font-light tracking-wide">
+                        <li><a href="index.html"
+                                class="hover:text-gold transition-colors block py-1 border-b border-white/5 hover:border-gold/30">Home</a>
+                        </li>
+                        <li><a href="about.html"
+                                class="hover:text-gold transition-colors block py-1 border-b border-white/5 hover:border-gold/30">About
+                                Us</a></li>
+                        <li><a href="expertise.html"
+                                class="hover:text-gold transition-colors block py-1 border-b border-white/5 hover:border-gold/30">Expertise</a>
+                        </li>
+                        <li><a href="team.html"
+                                class="hover:text-gold transition-colors block py-1 border-b border-white/5 hover:border-gold/30">Team</a>
+                        </li>
+                        <li><a href="events.html"
+                                class="hover:text-gold transition-colors block py-1 border-b border-white/5 hover:border-gold/30">Events</a>
+                        </li>
+                    </ul>
+                </div>
+                                <div>
+                    <h4
+                        class="text-white font-serif text-xl mb-8 tracking-[0.1em] uppercase border-l-2 border-gold pl-4">
+                        Contact</h4>
+                    <ul class="space-y-6 text-sm font-light tracking-wide">
+                        <li class="group">
+                            <span
+                                class="block text-xs uppercase text-gold mb-1 group-hover:text-white transition-colors">Islamabad Office</span>
+                            <span class="text-white text-sm leading-relaxed">Flat No. 1, First Floor, Plaza 163<br>Mateen Arcade, Bahria Civic Centre<br>Phase 4, Islamabad</span>
+                            <span class="block text-gray-500 text-xs mt-1">7 PM &mdash; 10 PM | Sun &mdash; Fri</span>
+                        </li>
+                        <li class="group">
+                            <span
+                                class="block text-xs uppercase text-gold mb-1 group-hover:text-white transition-colors">Rawalpindi Chamber</span>
+                            <span class="text-white text-sm leading-relaxed">Chamber 95, Ground Floor,<br>Justice Iftikhar Ch Block,<br>District Courts, Rawalpindi</span>
+                            <span class="block text-gray-500 text-xs mt-1">8 AM &mdash; 3 PM | Mon &mdash; Sat</span>
+                        </li>
+                        <li class="group">
+                            <span
+                                class="block text-xs uppercase text-gold mb-1 group-hover:text-white transition-colors">Cell Phone & WhatsApp</span>
+                            <span class="text-white text-sm">0312-4604786</span><br>
+                            <span class="text-white text-sm">0331-5052838</span>
+                        </li>
+                        <li class="group">
+                            <span
+                                class="block text-xs uppercase text-gold mb-1 group-hover:text-white transition-colors">Email</span>
+                            <a href="mailto:the.elixirs.law.firm@gmail.com"
+                                class="text-white text-sm hover:underline decoration-gold underline-offset-4">the.elixirs.law.firm@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                class="border-t border-white/5 mt-20 pt-10 text-center text-xs tracking-[0.2em] uppercase text-gray-600">
+                <p>&copy; 2026 The Elixirs Law Firm. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.fade-in-section').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+
+</html>

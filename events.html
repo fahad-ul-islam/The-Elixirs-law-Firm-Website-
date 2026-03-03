@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events & Gallery - The Elixirs Law Firm</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <!-- Tailwind Config for Custom Colors/Fonts -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            DEFAULT: '#0a192f',
+                            light: '#112240',
+                        },
+                        brown: {
+                            DEFAULT: '#3E2723',
+                            light: '#4E342E',
+                        },
+                        gold: {
+                            DEFAULT: '#d4af37',
+                            light: '#f1c40f',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Lato', 'sans-serif'],
+                    },
+                    height: {
+                        '32': '8rem',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Styles */
+        .glass-brown {
+            background: rgba(62, 39, 35, 0.95);
+        }
+
+        /* ==================== GALLERY STYLES ==================== */
+
+        /* Image Hover Treatment: Warm sepia-gold tone â†’ Full Color + Gold Border */
+        .gallery-img {
+            filter: sepia(0.35) saturate(0.7) brightness(0.92) contrast(1.05);
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 3px solid rgba(154, 123, 58, 0.7);
+            cursor: pointer;
+        }
+
+        .gallery-img:hover {
+            filter: sepia(0) saturate(1.15) brightness(1.02) contrast(1.02);
+            border: 3px solid #d4af37;
+            transform: scale(1.02);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.18);
+        }
+
+        /* Gold-tinted overlay on image containers */
+        .gallery-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(154, 123, 58, 0.08) 0%, transparent 60%);
+            z-index: 1;
+            pointer-events: none;
+            transition: opacity 0.6s ease;
+        }
+
+        .gallery-card:hover::before {
+            opacity: 0;
+        }
+
+        /* Lightbox */
+        .lightbox-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(5, 10, 20, 0.96);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .lightbox-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .lightbox-overlay img {
+            max-width: 90vw;
+            max-height: 78vh;
+            object-fit: contain;
+            border: 2px solid #d4af37;
+            box-shadow: 0 0 60px rgba(212, 175, 55, 0.15);
+        }
+
+        .lightbox-caption {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            color: #e0d6c2;
+            margin-top: 1.5rem;
+            max-width: 700px;
+            text-align: center;
+            line-height: 1.7;
+            letter-spacing: 0.02em;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            font-size: 2.2rem;
+            color: #d4af37;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            z-index: 10000;
+            background: none;
+            border: none;
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+        }
+
+        .lightbox-close:hover {
+            transform: rotate(90deg) scale(1.2);
+        }
+
+        /* Lightbox Navigation Arrows */
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2.5rem;
+            color: #d4af37;
+            cursor: pointer;
+            background: rgba(10, 25, 47, 0.6);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10000;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(212, 175, 55, 0.15);
+            border-color: #d4af37;
+        }
+
+        .lightbox-prev {
+            left: 1.5rem;
+        }
+
+        .lightbox-next {
+            right: 1.5rem;
+        }
+
+        /* Timeline */
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, transparent, #d4af37, transparent);
+            transform: translateX(-50%);
+        }
+
+        .timeline-dot {
+            width: 16px;
+            height: 16px;
+            background: #d4af37;
+            border-radius: 50%;
+            border: 3px solid #0a192f;
+            box-shadow: 0 0 0 2px #d4af37;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 2rem;
+            z-index: 2;
+        }
+
+        /* Parallax */
+        .parallax-section {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        @media (max-width: 768px) {
+            .parallax-section {
+                background-attachment: scroll;
+            }
+        }
+
+        /* Carousel */
+        .carousel-container {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            padding: 0 1rem;
+            box-sizing: border-box;
+        }
+
+        @media (min-width: 768px) {
+            .carousel-slide {
+                min-width: 50%;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .carousel-slide {
+                min-width: 33.333%;
+            }
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(10, 25, 47, 0.85);
+            border: 1px solid #d4af37;
+            color: #d4af37;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            font-size: 1.4rem;
+        }
+
+        .carousel-btn:hover {
+            background: rgba(212, 175, 55, 0.2);
+        }
+
+        .carousel-prev {
+            left: 0.5rem;
+        }
+
+        .carousel-next {
+            right: 0.5rem;
+        }
+
+        /* Carousel Indicators */
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.25);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: #d4af37;
+            border-color: #d4af37;
+        }
+
+        /* Section divider */
+        .section-divider {
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #d4af37, transparent);
+            margin: 0 auto;
+        }
+
+        /* Masonry-style layout */
+        .masonry-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .masonry-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .masonry-grid .masonry-full {
+                grid-column: span 2;
+            }
+        }
+
+        /* Section heading underline */
+        .heading-accent::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: #d4af37;
+            margin-top: 1rem;
+        }
+
+        .heading-accent-center::after {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Fade-in animation */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile nav */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 8rem;
+            left: 0;
+            right: 0;
+            background: #0a192f;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            z-index: 49;
+            padding: 1.5rem 2rem;
+        }
+
+        .mobile-nav.active {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+    </style>
+</head>
+
+<body class="bg-navy text-white font-sans antialiased">
+
+    <!-- 1. Architectural Header -->
+    <header class="fixed top-0 w-full z-50 bg-navy h-32 shadow-2xl border-b border-white/5">
+        <div class="container mx-auto px-8 h-full flex justify-between items-center">
+            <!-- Left: Brand Name -->
+            <a href="index.html"
+                class="flex flex-col items-center justify-center hover:opacity-80 transition-opacity uppercase mb-1 w-max">
+                <span class="text-[34px] whitespace-nowrap tracking-[0.1em] leading-none text-center"
+                    style="color: #9A7B3A; font-family: 'Cormorant Garamond', serif; font-weight: 800;">THE
+                    ELIXIRS</span>
+                <span class="text-[12px] whitespace-nowrap tracking-[0.3em] text-white mt-1 ml-[0.3em] text-center"
+                    style="font-family: 'Lato', sans-serif; font-weight: 400;">LAW FIRM</span>
+            </a>
+
+            <!-- Right: Navigation Links -->
+            <nav class="hidden xl:flex space-x-8 items-center h-full">
+                <a href="index.html"
+                    class="text-white hover:text-[#9A7B3A] text-[12px] whitespace-nowrap uppercase tracking-[0.15em] transition-colors font-[800]">Home</a>
+                <a href="about.html"
+                    class="text-white hover:text-[#9A7B3A] text-[12px] whitespace-nowrap uppercase tracking-[0.15em] transition-colors font-[800]">About
+                    Us</a>
+                <a href="expertise.html"
+                    class="text-white hover:text-[#9A7B3A] text-[12px] whitespace-nowrap uppercase tracking-[0.15em] transition-colors font-[800]">Expertise</a>
+                <a href="team.html"
+                    class="text-white hover:text-[#9A7B3A] text-[12px] whitespace-nowrap uppercase tracking-[0.15em] transition-colors font-[800]">Team</a>
+                <a href="updates.html"
+                    class="text-white hover:text-[#9A7B3A] text-[12px] whitespace-nowrap uppercase tracking-[0.15em] transition-colors font-[800]">Landmark
+                    Cases</a>
+                <a href="articles.html"
+                    class="text-white hover:text-[#9A7B3A] text-[12px] whitespace-nowrap uppercase tracking-[0.15em] transition-colors font-[800]">Legal
+                    Articles</a>
+                <a href="events.html"
+                    class="text-[#9A7B3A] text-[12px] whitespace-nowrap uppercase tracking-[0.15em] transition-colors font-[800]">Events</a>
+                <a href="contact.html"
+                    class="bg-white text-[#0a192f] px-6 py-3 text-[11px] whitespace-nowrap uppercase tracking-widest font-[800] hover:bg-gold transition-all border-b-2 border-gold">Contact
+                    Us</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn" class="xl:hidden text-white focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div id="mobileNav" class="mobile-nav">
+        <a href="index.html" class="text-white hover:text-[#9A7B3A] text-sm uppercase tracking-[0.15em] font-[800]">Home</a>
+        <a href="about.html" class="text-white hover:text-[#9A7B3A] text-sm uppercase tracking-[0.15em] font-[800]">About Us</a>
+        <a href="expertise.html" class="text-white hover:text-[#9A7B3A] text-sm uppercase tracking-[0.15em] font-[800]">Expertise</a>
+        <a href="team.html" class="text-white hover:text-[#9A7B3A] text-sm uppercase tracking-[0.15em] font-[800]">Team</a>
+        <a href="updates.html" class="text-white hover:text-[#9A7B3A] text-sm uppercase tracking-[0.15em] font-[800]">Landmark Cases</a>
+        <a href="articles.html" class="text-white hover:text-[#9A7B3A] text-sm uppercase tracking-[0.15em] font-[800]">Legal Articles</a>
+        <a href="events.html" class="text-[#9A7B3A] text-sm uppercase tracking-[0.15em] font-[800]">Events</a>
+        <a href="contact.html" class="text-white hover:text-[#9A7B3A] text-sm uppercase tracking-[0.15em] font-[800]">Contact Us</a>
+    </div>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="relative h-[500px] flex items-center justify-center bg-cover bg-center mt-32"
+        style="background-image: url('./assets/images/hero-bg.jpg');">
+        <div class="absolute inset-0 bg-navy/70"></div>
+        <div class="relative z-10 text-center max-w-4xl px-6">
+            <p class="text-[#d4af37] text-base uppercase tracking-[0.3em] font-[900] mb-5">Gallery & Milestones</p>
+            <h1 class="text-5xl md:text-7xl font-serif text-white mb-5 leading-none drop-shadow-xl" style="font-weight: 900;">
+                Events &<br>
+                <span class="text-gold">Recognitions</span>
+            </h1>
+            <p class="text-gray-300 text-xl font-bold max-w-xl mx-auto leading-relaxed tracking-wide" style="font-weight: 700;">
+                A curated collection of professional milestones, academic contributions, and courtroom experience.
+            </p>
+        </div>
+    </section>
+
+    <main>
+
+        <!-- ==================== SECTION 1: ACADEMIC & THOUGHT LEADERSHIP ==================== -->
+        <section class="py-24 bg-navy fade-in-section">
+            <div class="container mx-auto px-6 md:px-12">
+                <!-- Section Header -->
+                <div class="text-center mb-16">
+                    <p class="text-[#d4af37] text-xs uppercase tracking-[0.35em] font-[800] mb-3">Section I</p>
+                    <h2 class="text-3xl md:text-4xl font-serif text-white heading-accent heading-accent-center">
+                        Academic & Thought Leadership</h2>
+                    <p class="text-gray-400 mt-6 max-w-2xl mx-auto text-base font-light leading-relaxed">
+                        Establishing the founder as a distinguished legal educator through lectures, seminars, and
+                        thought leadership across prestigious institutions.
+                    </p>
+                </div>
+
+                <!-- Lectures Grid: 2x2 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+
+                    <!-- 16.jpeg -->
+                    <div class="gallery-card group bg-navy-light">
+                        <img src="./assets/images/16.jpeg" alt="Delivering lecture in HCBA RWP"
+                            class="gallery-img w-full h-[350px] object-cover"
+                            data-caption="Delivering lecture in HCBA RWP.">
+                        <div
+                            class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-navy via-navy/80 to-transparent p-6 pt-16 z-[2]">
+                            <p class="text-white text-sm font-light leading-relaxed"
+                                style="font-family: 'Cormorant Garamond', serif; font-size: 1.05rem;">
+                                Delivering lecture in HCBA RWP.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 14.jpeg -->
+                    <div class="gallery-card group bg-navy-light">
+                        <img src="./assets/images/14.jpeg"
+                            alt="Receiving shield from HOD Mass Communication department NUML"
+                            class="gallery-img w-full h-[350px] object-cover"
+                            data-caption="Receiving shield from HOD Mass Communication department NUML after delivering lecture on &ldquo;Sexual Harassment at Workplace&rdquo;.">
+                        <div
+                            class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-navy via-navy/80 to-transparent p-6 pt-16 z-[2]">
+                            <p class="text-white text-sm font-light leading-relaxed"
+                                style="font-family: 'Cormorant Garamond', serif; font-size: 1.05rem;">
+                                Receiving shield from HOD Mass Communication department NUML after delivering lecture on
+                                "Sexual Harassment at Workplace".
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 11.jpeg -->
+                    <div class="gallery-card group bg-navy-light">
+                        <img src="./assets/images/11.jpeg"
+                            alt="Receiving shield for lecture on Dimensions of a Rape Trial"
+                            class="gallery-img w-full h-[350px] object-cover"
+                            data-caption="Receiving shield for delivering lecture on &ldquo;Dimensions of a Rape Trial&rdquo; from legal student association &ldquo;Legal Wave&rdquo;.">
+                        <div
+                            class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-navy via-navy/80 to-transparent p-6 pt-16 z-[2]">
+                            <p class="text-white text-sm font-light leading-relaxed"
+                                style="font-family: 'Cormorant Garamond', serif; font-size: 1.05rem;">
+                                Receiving shield for delivering lecture on "Dimensions of a Rape Trial" from legal
+                                student association "Legal Wave".
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 09.jpeg -->
+                    <div class="gallery-card group bg-navy-light">
+                        <img src="./assets/images/9.jpeg"
+                            alt="Receiving shield for delivering lectures in the bar"
+                            class="gallery-img w-full h-[350px] object-cover"
+                            data-caption="Receiving a shield for delivering lectures in the bar from the Honourable Justice Sohail Nasir, President, and Secretary of DBA RWP.">
+                        <div
+                            class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-navy via-navy/80 to-transparent p-6 pt-16 z-[2]">
+                            <p class="text-white text-sm font-light leading-relaxed"
+                                style="font-family: 'Cormorant Garamond', serif; font-size: 1.05rem;">
+                                Receiving a shield for delivering lectures in the bar from the Honourable Justice Sohail
+                                Nasir, President, and Secretary of DBA RWP.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="py-4 bg-navy">
+            <div class="section-divider"></div>
+        </div>
+
+        <!-- ==================== SECTION 2: FIRM CULTURE &mdash; CAROUSEL ==================== -->
+        <section class="py-24 bg-navy fade-in-section">
+            <div class="container mx-auto px-6 md:px-12">
+                <!-- Section Header -->
+                <div class="text-center mb-16">
+                    <p class="text-[#d4af37] text-xs uppercase tracking-[0.35em] font-[800] mb-3">Section II</p>
+                    <h2 class="text-3xl md:text-4xl font-serif text-white heading-accent heading-accent-center">Firm
+                        Culture</h2>
+                    <p class="text-gray-400 mt-6 max-w-2xl mx-auto text-base font-light leading-relaxed">
+                        Glimpses from the welcome hi-tea held in honour of newly joined associates of The Elixirs Law
+                        Firm.
+                    </p>
+                </div>
+
+                <!-- Carousel -->
+                <div class="max-w-6xl mx-auto">
+                    <div class="carousel-container">
+                        <!-- Navigation Buttons -->
+                        <button class="carousel-btn carousel-prev" id="carouselPrev" aria-label="Previous slide">
+                            &#8249;
+                        </button>
+                        <button class="carousel-btn carousel-next" id="carouselNext" aria-label="Next slide">
+                            &#8250;
+                        </button>
+
+                        <div class="carousel-track" id="carouselTrack">
+                            <!-- Slide 1: 02.jpeg -->
+                            <div class="carousel-slide">
+                                <div class="gallery-card">
+                                    <img src="./assets/images/2.jpeg"
+                                        alt="Welcome hi-tea &mdash; Glimpse 1"
+                                        class="gallery-img w-full h-[420px] object-cover"
+                                        data-caption="Glimpses from the welcome hi-tea held in honour of newly joined associates of The Elixirs Law Firm.">
+                                    <div
+                                        class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-navy via-navy/70 to-transparent p-5 pt-12 z-[2]">
+                                        <p class="text-white text-sm font-light"
+                                            style="font-family: 'Cormorant Garamond', serif; font-size: 1.05rem;">
+                                            Welcome Hi-Tea &mdash; Glimpse I
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 2: 03.jpeg -->
+                            <div class="carousel-slide">
+                                <div class="gallery-card">
+                                    <img src="./assets/images/3.jpeg"
+                                        alt="Welcome hi-tea &mdash; Glimpse 2"
+                                        class="gallery-img w-full h-[420px] object-cover"
+                                        data-caption="Glimpses from the welcome hi-tea held in honour of newly joined associates of The Elixirs Law Firm.">
+                                    <div
+                                        class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-navy via-navy/70 to-transparent p-5 pt-12 z-[2]">
+                                        <p class="text-white text-sm font-light"
+                                            style="font-family: 'Cormorant Garamond', serif; font-size: 1.05rem;">
+                                            Welcome Hi-Tea &mdash; Glimpse II
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 3: 04.jpeg -->
+                            <div class="carousel-slide">
+                                <div class="gallery-card">
+                                    <img src="./assets/images/4.jpeg"
+                                        alt="Welcome hi-tea &mdash; Glimpse 3"
+                                        class="gallery-img w-full h-[420px] object-cover"
+                                        data-caption="Glimpses from the welcome hi-tea held in honour of newly joined associates of The Elixirs Law Firm.">
+                                    <div
+                                        class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-navy via-navy/70 to-transparent p-5 pt-12 z-[2]">
+                                        <p class="text-white text-sm font-light"
+                                            style="font-family: 'Cormorant Garamond', serif; font-size: 1.05rem;">
+                                            Welcome Hi-Tea &mdash; Glimpse III
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Carousel Dots -->
+                        <div class="carousel-dots" id="carouselDots"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 3: THE SCHOLAR'S CORNER (PARALLAX) ==================== -->
+
+        <!-- 12.jpeg Parallax -->
+        <section class="parallax-section relative h-[500px] flex items-center justify-center fade-in-section"
+            style="background-image: url('./assets/images/12.jpeg');">
+            <div class="absolute inset-0 bg-navy/60"></div>
+            <div class="relative z-10 text-center max-w-3xl px-6">
+                <p class="text-[#d4af37] text-xs uppercase tracking-[0.35em] font-[800] mb-4">Section III</p>
+                <h2 class="text-3xl md:text-5xl font-serif text-white mb-6">The Scholar's Corner</h2>
+                <div class="section-divider mb-8"></div>
+                <blockquote class="text-xl md:text-2xl text-gray-200 font-light italic leading-relaxed"
+                    style="font-family: 'Cormorant Garamond', serif;">
+                    "In Library, my second home."
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- 10.jpeg Section -->
+        <section class="py-24 bg-navy-light fade-in-section">
+            <div class="container mx-auto px-6 md:px-12">
+                <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
+                    <div class="w-full md:w-1/2">
+                        <img src="./assets/images/10.jpeg"
+                            alt="Sessions Court Library, Gilgit Baltistan"
+                            class="gallery-img w-full h-[400px] object-cover"
+                            data-caption="Sitting in the Sessions Court Library, Gilgit Baltistan.">
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <p class="text-[#d4af37] text-xs uppercase tracking-[0.3em] font-[800] mb-3">Research &
+                            Scholarship</p>
+                        <h3 class="text-2xl md:text-3xl font-serif text-white mb-6 heading-accent">Sessions Court
+                            Library</h3>
+                        <p class="text-gray-300 text-base font-light leading-relaxed"
+                            style="font-family: 'Cormorant Garamond', serif; font-size: 1.15rem;">
+                            Sitting in the Sessions Court Library, Gilgit Baltistan &mdash; where deep research meets
+                            the pursuit of justice. Every case begins with meticulous study and every argument is
+                            rooted in scholarly understanding.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="py-4 bg-navy">
+            <div class="section-divider"></div>
+        </div>
+
+        <!-- ==================== SECTION 4: COURTROOM EXPERIENCE ==================== -->
+        <section class="py-24 bg-navy fade-in-section">
+            <div class="container mx-auto px-6 md:px-12">
+                <!-- Section Header -->
+                <div class="text-center mb-16">
+                    <p class="text-[#d4af37] text-xs uppercase tracking-[0.35em] font-[800] mb-3">Section IV</p>
+                    <h2 class="text-3xl md:text-4xl font-serif text-white heading-accent heading-accent-center">
+                        Courtroom Experience & Judicial Presence</h2>
+                    <p class="text-gray-400 mt-6 max-w-2xl mx-auto text-base font-light leading-relaxed">
+                        Active litigation and judicial presence across courts &mdash; from Sessions Courts to the Chief
+                        Justice Chamber.
+                    </p>
+                </div>
+
+                <!-- Masonry / Full-bleed Grid -->
+                <div class="masonry-grid max-w-6xl mx-auto">
+
+                    <!-- 17.jpeg & 20.jpeg: Grouped &mdash; Chief Justice Chamber Portraits -->
+                    <div class="gallery-card bg-navy-light">
+                        <img src="./assets/images/17.jpeg"
+                            alt="Portrait from Chief Justice Chamber, GB Chief Court"
+                            class="gallery-img w-full h-[400px] object-cover"
+                            data-caption="Portrait from the Chief Justice Chamber, GB Chief Court.">
+                        <div
+                            class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-navy via-navy/80 to-transparent p-6 pt-16 z-[2]">
+                            <p class="text-[#d4af37] text-xs uppercase tracking-[0.25em] font-[700] mb-1">Chief
+                                Justice Chamber</p>
+                            <p class="text-white text-sm font-light"
+                                style="font-family: 'Cormorant Garamond', serif; font-size: 1.05rem;">
+                                Portrait from the Chief Justice Chamber, GB Chief Court.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-card bg-navy-light">
+                        <img src="./assets/images/20.jpeg"
+                            alt="Portrait from Chief Justice Chamber, GB Chief Court"
+                            class="gallery-img w-full h-[400px] object-cover"
+                            data-caption="Portrait from the Chief Justice Chamber, GB Chief Court.">
+                        <div
+                            class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-navy via-navy/80 to-transparent p-6 pt-16 z-[2]">
+                            <p class="text-[#d4af37] text-xs uppercase tracking-[0.25em] font-[700] mb-1">Chief
+                                Justice Chamber</p>
+                            <p class="text-white text-sm font-light"
+                                style="font-family: 'Cormorant Garamond', serif; font-size: 1.05rem;">
+                                Portrait from the Chief Justice Chamber, GB Chief Court.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 15.jpeg: Side-by-side layout -->
+                </div>
+
+                <div class="max-w-6xl mx-auto mt-12 flex flex-col md:flex-row items-center gap-12">
+                    <div class="w-full md:w-1/2">
+                        <img src="./assets/images/15.jpeg"
+                            alt="Sessions Court Chillas &mdash; State Vs Anbia"
+                            class="gallery-img w-full h-[400px] object-cover"
+                            data-caption="Sessions Court Chillas; captured during the murder trial of State Vs Anbia etc.">
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <p class="text-[#d4af37] text-xs uppercase tracking-[0.3em] font-[800] mb-3">Sessions
+                            Court Chillas</p>
+                        <h3 class="text-2xl md:text-3xl font-serif text-white mb-6 heading-accent">State Vs Anbia</h3>
+                        <p class="text-gray-300 text-base font-light leading-relaxed"
+                            style="font-family: 'Cormorant Garamond', serif; font-size: 1.15rem;">
+                            Captured during the murder trial of <em>State Vs Anbia etc.</em> &mdash; a testament to
+                            unwavering courtroom presence and dedicated advocacy in the pursuit of justice.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 18.jpeg: Side-by-side layout -->
+                <div class="max-w-6xl mx-auto mt-12 flex flex-col md:flex-row items-center gap-12">
+                    <div class="w-full md:w-1/2">
+                        <img src="./assets/images/18.jpeg"
+                            alt="Sessions Court Chillas &mdash; State Vs Ghandal Shah"
+                            class="gallery-img w-full h-[400px] object-cover"
+                            data-caption="Sessions Court Chillas; captured during the high-profile murder trial of State Vs Ghandal Shah etc.">
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <p class="text-[#d4af37] text-xs uppercase tracking-[0.3em] font-[800] mb-3">Sessions
+                            Court Chillas</p>
+                        <h3 class="text-2xl md:text-3xl font-serif text-white mb-6 heading-accent">State Vs Ghandal Shah</h3>
+                        <p class="text-gray-300 text-base font-light leading-relaxed"
+                            style="font-family: 'Cormorant Garamond', serif; font-size: 1.15rem;">
+                            Captured during the high-profile murder trial of <em>State Vs Ghandal Shah etc.</em> &mdash;
+                            active litigation demanding precision, strategy, and judicial presence at every stage.
+                        </p>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="py-4 bg-navy">
+            <div class="section-divider"></div>
+        </div>
+
+        <!-- ==================== SECTION 5: PROFESSIONAL MILESTONES (TIMELINE) ==================== -->
+        <section class="py-24 bg-navy fade-in-section">
+            <div class="container mx-auto px-6 md:px-12">
+                <!-- Section Header -->
+                <div class="text-center mb-20">
+                    <p class="text-[#d4af37] text-xs uppercase tracking-[0.35em] font-[800] mb-3">Section V</p>
+                    <h2 class="text-3xl md:text-4xl font-serif text-white heading-accent heading-accent-center">
+                        Professional Milestones</h2>
+                    <p class="text-gray-400 mt-6 max-w-2xl mx-auto text-base font-light leading-relaxed">
+                        Key moments in a journey of legal excellence &mdash; from the district bar to the Supreme Court of
+                        Pakistan.
+                    </p>
+                </div>
+
+                <!-- Timeline -->
+                <div class="relative max-w-5xl mx-auto">
+                    <!-- Timeline Line -->
+                    <div class="timeline-line hidden md:block"></div>
+
+                    <!-- Milestone 1: 01.jpeg (2019) -->
+                    <div class="relative flex flex-col md:flex-row items-center mb-20">
+                        <!-- Left Content -->
+                        <div class="w-full md:w-1/2 md:pr-16 text-right mb-6 md:mb-0">
+                            <span
+                                class="inline-block text-[#d4af37] text-xs uppercase tracking-[0.3em] font-[800] mb-2 border border-[#d4af37]/30 px-4 py-1">2019</span>
+                            <p class="text-gray-300 text-base font-light leading-relaxed mt-3"
+                                style="font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;">
+                                Receiving shield for participating in the annual mushaira held at DBA RWP from Member
+                                Punjab Bar Council Qausain Faisal Mufti ASC & S.A Mahmood Sadozai.
+                            </p>
+                        </div>
+                        <!-- Timeline Dot -->
+                        <div class="timeline-dot hidden md:block"></div>
+                        <!-- Right Image -->
+                        <div class="w-full md:w-1/2 md:pl-16">
+                            <img src="./assets/images/01.jpeg"
+                                alt="Receiving shield at annual mushaira DBA RWP"
+                                class="gallery-img w-full h-[300px] object-cover"
+                                data-caption="Receiving shield for participating in the annual mushaira held at DBA RWP from Member Punjab Bar Council Qausain Faisal Mufti ASC & S.A Mahmood Sadozai (2019).">
+                        </div>
+                    </div>
+
+                    <!-- Milestone 2: 13.jpeg -->
+                    <div class="relative flex flex-col md:flex-row-reverse items-center">
+                        <!-- Right Content -->
+                        <div class="w-full md:w-1/2 md:pl-16 text-left mb-6 md:mb-0">
+                            <span
+                                class="inline-block text-[#d4af37] text-xs uppercase tracking-[0.3em] font-[800] mb-2 border border-[#d4af37]/30 px-4 py-1">Milestone</span>
+                            <p class="text-gray-300 text-base font-light leading-relaxed mt-3"
+                                style="font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;">
+                                Receiving flower bouquet from a fellow lawyer on being enrolled as an Advocate of the
+                                Supreme Court of Pakistan.
+                            </p>
+                        </div>
+                        <!-- Timeline Dot -->
+                        <div class="timeline-dot hidden md:block"></div>
+                        <!-- Left Image -->
+                        <div class="w-full md:w-1/2 md:pr-16">
+                            <img src="./assets/images/13.jpeg"
+                                alt="Enrolled as Advocate of the Supreme Court of Pakistan"
+                                class="gallery-img w-full h-[300px] object-cover"
+                                data-caption="Receiving flower bouquet from a fellow lawyer on being enrolled as an Advocate of the Supreme Court of Pakistan.">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-[#050f1e] text-gray-400 py-24 border-t border-white/5">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+                <div>
+                    <h4
+                        class="text-white font-serif text-xl mb-8 tracking-[0.1em] uppercase border-l-2 border-gold pl-4">
+                        Resources</h4>
+                    <ul class="space-y-4 text-sm font-light tracking-wide">
+                        <li><a href="articles.html"
+                                class="hover:text-gold transition-colors block py-1 border-b border-white/5 hover:border-gold/30">Legal
+                                Articles</a></li>
+                        <li><a href="updates.html"
+                                class="hover:text-gold transition-colors block py-1 border-b border-white/5 hover:border-gold/30">Landmark
+                                Cases</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4
+                        class="text-white font-serif text-xl mb-8 tracking-[0.1em] uppercase border-l-2 border-gold pl-4">
+                        Company</h4>
+                    <ul class="space-y-4 text-sm font-light tracking-wide">
+                        <li><a href="index.html"
+                                class="hover:text-gold transition-colors block py-1 border-b border-white/5 hover:border-gold/30">Home</a>
+                        </li>
+                        <li><a href="about.html"
+                                class="hover:text-gold transition-colors block py-1 border-b border-white/5 hover:border-gold/30">About
+                                Us</a></li>
+                        <li><a href="expertise.html"
+                                class="hover:text-gold transition-colors block py-1 border-b border-white/5 hover:border-gold/30">Expertise</a>
+                        </li>
+                        <li><a href="team.html"
+                                class="hover:text-gold transition-colors block py-1 border-b border-white/5 hover:border-gold/30">Team</a>
+                        </li>
+                        <li><a href="events.html"
+                                class="hover:text-gold transition-colors block py-1 border-b border-white/5 hover:border-gold/30">Events</a>
+                        </li>
+                    </ul>
+                </div>
+                                <div>
+                    <h4
+                        class="text-white font-serif text-xl mb-8 tracking-[0.1em] uppercase border-l-2 border-gold pl-4">
+                        Contact</h4>
+                    <ul class="space-y-6 text-sm font-light tracking-wide">
+                        <li class="group">
+                            <span
+                                class="block text-xs uppercase text-gold mb-1 group-hover:text-white transition-colors">Islamabad Office</span>
+                            <span class="text-white text-sm leading-relaxed">Flat No. 1, First Floor, Plaza 163<br>Mateen Arcade, Bahria Civic Centre<br>Phase 4, Islamabad</span>
+                            <span class="block text-gray-500 text-xs mt-1">7 PM &mdash; 10 PM | Sun &mdash; Fri</span>
+                        </li>
+                        <li class="group">
+                            <span
+                                class="block text-xs uppercase text-gold mb-1 group-hover:text-white transition-colors">Rawalpindi Chamber</span>
+                            <span class="text-white text-sm leading-relaxed">Chamber 95, Ground Floor,<br>Justice Iftikhar Ch Block,<br>District Courts, Rawalpindi</span>
+                            <span class="block text-gray-500 text-xs mt-1">8 AM &mdash; 3 PM | Mon &mdash; Sat</span>
+                        </li>
+                        <li class="group">
+                            <span
+                                class="block text-xs uppercase text-gold mb-1 group-hover:text-white transition-colors">Cell Phone & WhatsApp</span>
+                            <span class="text-white text-sm">0312-4604786</span><br>
+                            <span class="text-white text-sm">0331-5052838</span>
+                        </li>
+                        <li class="group">
+                            <span
+                                class="block text-xs uppercase text-gold mb-1 group-hover:text-white transition-colors">Email</span>
+                            <a href="mailto:the.elixirs.law.firm@gmail.com"
+                                class="text-white text-sm hover:underline decoration-gold underline-offset-4">the.elixirs.law.firm@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                class="border-t border-white/5 mt-20 pt-10 text-center text-xs tracking-[0.2em] uppercase text-gray-600">
+                <p>&copy; 2026 The Elixirs Law Firm. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== LIGHTBOX ==================== -->
+    <div class="lightbox-overlay" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">&times;</button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image">&#8249;</button>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next image">&#8250;</button>
+        <img src="" alt="" id="lightboxImg">
+        <p class="lightbox-caption" id="lightboxCaption"></p>
+    </div>
+
+    <!-- ==================== SCRIPTS ==================== -->
+    <script>
+        // ===== Intersection Observer for Fade-In =====
+        document.addEventListener("DOMContentLoaded", function () {
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in-section').forEach(el => observer.observe(el));
+
+            // ===== Lightbox =====
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            const lightboxCaption = document.getElementById('lightboxCaption');
+            const lightboxClose = document.getElementById('lightboxClose');
+            const lightboxPrev = document.getElementById('lightboxPrev');
+            const lightboxNext = document.getElementById('lightboxNext');
+
+            const galleryImages = Array.from(document.querySelectorAll('.gallery-img'));
+            let currentIndex = 0;
+
+            function openLightbox(index) {
+                currentIndex = index;
+                const img = galleryImages[index];
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightboxCaption.innerHTML = img.getAttribute('data-caption') || '';
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            function showPrev() {
+                currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+                openLightbox(currentIndex);
+            }
+
+            function showNext() {
+                currentIndex = (currentIndex + 1) % galleryImages.length;
+                openLightbox(currentIndex);
+            }
+
+            galleryImages.forEach((img, index) => {
+                img.addEventListener('click', () => openLightbox(index));
+            });
+
+            lightboxClose.addEventListener('click', closeLightbox);
+            lightboxPrev.addEventListener('click', showPrev);
+            lightboxNext.addEventListener('click', showNext);
+
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) closeLightbox();
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (!lightbox.classList.contains('active')) return;
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') showPrev();
+                if (e.key === 'ArrowRight') showNext();
+            });
+
+            // ===== Carousel =====
+            const track = document.getElementById('carouselTrack');
+            const slides = track.querySelectorAll('.carousel-slide');
+            const prevBtn = document.getElementById('carouselPrev');
+            const nextBtn = document.getElementById('carouselNext');
+            const dotsContainer = document.getElementById('carouselDots');
+            let carouselIndex = 0;
+
+            function getSlidesPerView() {
+                if (window.innerWidth >= 1024) return 3;
+                if (window.innerWidth >= 768) return 2;
+                return 1;
+            }
+
+            function getMaxIndex() {
+                return Math.max(0, slides.length - getSlidesPerView());
+            }
+
+            function updateCarousel() {
+                const slideWidth = 100 / getSlidesPerView();
+                track.style.transform = `translateX(-${carouselIndex * slideWidth}%)`;
+                updateDots();
+            }
+
+            function createDots() {
+                dotsContainer.innerHTML = '';
+                const totalDots = getMaxIndex() + 1;
+                for (let i = 0; i < totalDots; i++) {
+                    const dot = document.createElement('button');
+                    dot.classList.add('carousel-dot');
+                    dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+                    if (i === carouselIndex) dot.classList.add('active');
+                    dot.addEventListener('click', () => {
+                        carouselIndex = i;
+                        updateCarousel();
+                    });
+                    dotsContainer.appendChild(dot);
+                }
+            }
+
+            function updateDots() {
+                const dots = dotsContainer.querySelectorAll('.carousel-dot');
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === carouselIndex);
+                });
+            }
+
+            prevBtn.addEventListener('click', () => {
+                carouselIndex = Math.max(0, carouselIndex - 1);
+                updateCarousel();
+            });
+
+            nextBtn.addEventListener('click', () => {
+                carouselIndex = Math.min(getMaxIndex(), carouselIndex + 1);
+                updateCarousel();
+            });
+
+            // Auto-advance carousel every 4 seconds
+            let autoPlay = setInterval(() => {
+                carouselIndex = carouselIndex >= getMaxIndex() ? 0 : carouselIndex + 1;
+                updateCarousel();
+            }, 4000);
+
+            // Pause on hover
+            const carouselContainer = document.querySelector('.carousel-container');
+            carouselContainer.addEventListener('mouseenter', () => clearInterval(autoPlay));
+            carouselContainer.addEventListener('mouseleave', () => {
+                autoPlay = setInterval(() => {
+                    carouselIndex = carouselIndex >= getMaxIndex() ? 0 : carouselIndex + 1;
+                    updateCarousel();
+                }, 4000);
+            });
+
+            // Initialize
+            createDots();
+            updateCarousel();
+
+            window.addEventListener('resize', () => {
+                carouselIndex = Math.min(carouselIndex, getMaxIndex());
+                createDots();
+                updateCarousel();
+            });
+
+            // ===== Mobile Menu Toggle =====
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileNav = document.getElementById('mobileNav');
+            if (mobileMenuBtn && mobileNav) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileNav.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

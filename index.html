@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Elixirs Law Firm - Precision in Advocacy</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <!-- Tailwind Config for Custom Colors/Fonts -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            DEFAULT: '#0a192f',
+                            light: '#112240',
+                        },
+                        brown: {
+                            DEFAULT: '#3E2723', // Cigar Brown
+                            light: '#4E342E',
+                        },
+                        gold: {
+                            DEFAULT: '#d4af37',
+                            light: '#f1c40f',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Lato', 'sans-serif'],
+                    },
+                    height: {
+                        '32': '8rem', // Ensuring h-32 is available
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Styles */
+        .glass-brown {
+            background: rgba(62, 39, 35, 0.95);
+            /* High opacity brown */
+        }
+    </style>
+</head>
+
+<body class="bg-navy text-white font-sans antialiased">
+
+    <!-- 1. Architectural Header -->
+    <header class="fixed top-0 w-full z-50 bg-navy h-32 shadow-2xl border-b border-white/5">
+        <div class="container mx-auto px-8 h-full flex justify-between items-center">
+            <!-- Left: Brand Name -->
+            <a href="index.html" class="flex flex-col items-center justify-center hover:opacity-80 transition-opacity uppercase mb-1 w-max">
+                <span class="text-[34px] whitespace-nowrap tracking-[0.1em] leading-none text-center" style="color: #9A7B3A; font-family: 'Cormorant Garamond', serif; font-weight: 800;">THE ELIXIRS</span>
+                <!-- Added ml-[0.3em] to counteract the right-pull of the tracking-[0.3em] for perfect visual centering -->
+                <span class="text-[12px] whitespace-nowrap tracking-[0.3em] text-white mt-1 ml-[0.3em] text-center" style="font-family: 'Lato', sans-serif; font-weight: 400;">LAW FIRM</span>
+            </a>
+
+            <!-- Right: Navigation Links -->
+            <nav class="hidden xl:flex space-x-8 items-center h-full">
+                <a href="index.html"
+                    class="text-white hover:text-[#9A7B3A] text-[12px] whitespace-nowrap uppercase tracking-[0.15em] transition-colors font-[800]">Home</a>
+                <a href="about.html"
+                    class="text-white hover:text-[#9A7B3A] text-[12px] whitespace-nowrap uppercase tracking-[0.15em] transition-colors font-[800]">About
+                    Us</a>
+                <a href="expertise.html"
+                    class="text-white hover:text-[#9A7B3A] text-[12px] whitespace-nowrap uppercase tracking-[0.15em] transition-colors font-[800]">Expertise</a>
+                <a href="team.html"
+                    class="text-white hover:text-[#9A7B3A] text-[12px] whitespace-nowrap uppercase tracking-[0.15em] transition-colors font-[800]">Team</a>
+                <a href="updates.html"
+                    class="text-white hover:text-[#9A7B3A] text-[12px] whitespace-nowrap uppercase tracking-[0.15em] transition-colors font-[800]">Landmark
+                    Cases</a>
+                <a href="articles.html"
+                    class="text-white hover:text-[#9A7B3A] text-[12px] whitespace-nowrap uppercase tracking-[0.15em] transition-colors font-[800]">Legal
+                    Articles</a>
+                <a href="events.html"
+                    class="text-white hover:text-[#9A7B3A] text-[12px] whitespace-nowrap uppercase tracking-[0.15em] transition-colors font-[800]">Events</a>
+                <a href="contact.html"
+                    class="bg-white text-[#0a192f] px-6 py-3 text-[11px] whitespace-nowrap uppercase tracking-widest font-[800] hover:bg-gold transition-all border-b-2 border-gold">Contact
+                    Us</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button class="xl:hidden text-white focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- 2. Hero Section (Cover) - SHORTENED HEIGHT -->
+    <section class="relative h-[600px] flex items-end justify-start bg-cover bg-center mt-32"
+        style="background-image: url('./assets/images/hero-bg.jpg');">
+        <div class="absolute inset-0 bg-navy/40"></div> <!-- Dark overlay -->
+
+        <div class="relative z-10 p-12 md:p-16 max-w-4xl">
+            <h1 class="text-5xl md:text-7xl font-serif text-white mb-6 leading-none drop-shadow-xl">
+                Precision in Advocacy.<br>
+                <span class="text-gold">Power in Results.</span>
+            </h1>
+            <a href="about.html"
+                class="inline-block border-2 border-white text-white px-10 py-3 text-sm font-bold uppercase tracking-[0.2em] hover:bg-white hover:text-navy transition-colors duration-300">
+                Read More
+            </a>
+        </div>
+    </section>
+
+    <!-- 3. Intro Section (The Wall) -->
+    <section class="relative py-24 bg-cover bg-center flex items-center justify-center"
+        style="background-image: url('./assets/images/firm-name-wall.jpg');">
+
+        <div class="relative z-10 glass-brown p-12 max-w-4xl text-center shadow-2xl border border-white/5">
+            <h2 class="text-4xl font-serif text-gold mb-6">About The Elixirs</h2>
+            <p class="text-lg text-gray-200 leading-relaxed font-light">
+                A legacy of excellence. At The Elixirs, we provide high-stakes representation for those who demand
+                nothing less than victory. Our reputation is built on discretion, strategy, and an unyielding commitment
+                to our clients' success.
+            </p>
+        </div>
+    </section>
+
+    <!-- 4. Fields of Expertise (Images & Brown Theme) -->
+    <section class="bg-navy py-24">
+        <div class="container mx-auto px-6 text-center mb-12">
+            <h2 class="text-4xl font-serif text-white mb-2">Fields of Expertise</h2>
+            <p class="text-gold text-lg tracking-[0.2em] font-light uppercase">Defined by Vision. Driven by Excellence.
+            </p>
+        </div>
+
+        <!-- Grid Container with Restrictions for "Smaller/Centered" look -->
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-1 bg-navy border border-white/5">
+                <!-- Row 1 Left: Criminal Law -->
+                <div class="relative h-72 group overflow-hidden">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                        style="background-image: url('./assets/images/exp-criminal.jpg');"></div>
+                    <div class="absolute inset-0 bg-navy/60 group-hover:bg-brown/80 transition-colors duration-300">
+                    </div>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center text-white">
+                        <h3 class="text-2xl font-serif font-bold text-gold tracking-widest uppercase mb-2">Criminal Law
+                        </h3>
+                        <p
+                            class="text-sm text-gray-200 font-light opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0">
+                            Defending your liberty with rigorous analysis.</p>
+                    </div>
+                </div>
+
+                <!-- Row 1 Right: Family Law -->
+                <div class="relative h-72 group overflow-hidden">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                        style="background-image: url('./assets/images/exp-family.jpg');"></div>
+                    <div class="absolute inset-0 bg-navy/60 group-hover:bg-brown/80 transition-colors duration-300">
+                    </div>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center text-white">
+                        <h3 class="text-2xl font-serif font-bold text-gold tracking-widest uppercase mb-2">Family Law
+                        </h3>
+                        <p
+                            class="text-sm text-gray-200 font-light opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0">
+                            Navigating delicate matters with discretion.</p>
+                    </div>
+                </div>
+
+                <!-- Row 2 Left: Corporate -->
+                <div class="relative h-72 group overflow-hidden">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                        style="background-image: url('./assets/images/exp-corporate.jpg');"></div>
+                    <div class="absolute inset-0 bg-navy/60 group-hover:bg-brown/80 transition-colors duration-300">
+                    </div>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center text-white">
+                        <h3 class="text-2xl font-serif font-bold text-gold tracking-widest uppercase mb-2">Corporate Law
+                        </h3>
+                        <p
+                            class="text-sm text-gray-200 font-light opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0">
+                            Strategic counsel for business growth.</p>
+                    </div>
+                </div>
+
+                <!-- Row 2 Right: Civil -->
+                <div class="relative h-72 group overflow-hidden">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                        style="background-image: url('./assets/images/exp-civil.jpg');"></div>
+                    <div class="absolute inset-0 bg-navy/60 group-hover:bg-brown/80 transition-colors duration-300">
+                    </div>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center text-white">
+                        <h3 class="text-2xl font-serif font-bold text-gold tracking-widest uppercase mb-2">Civil Law
+                        </h3>
+                        <p
+                            class="text-sm text-gray-200 font-light opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0">
+                            Resolving disputes efficiently and fairly.</p>
+                    </div>
+                </div>
+
+                <!-- Row 3 Left: Constitutional -->
+                <div class="relative h-72 group overflow-hidden">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                        style="background-image: url('./assets/images/exp-constitution.jpg');"></div>
+                    <div class="absolute inset-0 bg-navy/60 group-hover:bg-brown/80 transition-colors duration-300">
+                    </div>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center text-white">
+                        <h3 class="text-2xl font-serif font-bold text-gold tracking-widest uppercase mb-2">
+                            Constitutional Law</h3>
+                        <p
+                            class="text-sm text-gray-200 font-light opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0">
+                            Protecting fundamental rights and liberties.</p>
+                    </div>
+                </div>
+
+                <!-- Row 3 Right: Banking -->
+                <div class="relative h-72 group overflow-hidden">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                        style="background-image: url('./assets/images/exp-banking.jpg');"></div>
+                    <div class="absolute inset-0 bg-navy/60 group-hover:bg-brown/80 transition-colors duration-300">
+                    </div>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center text-white">
+                        <h3 class="text-2xl font-serif font-bold text-gold tracking-widest uppercase mb-2">Banking Law
+                        </h3>
+                        <p
+                            class="text-sm text-gray-200 font-light opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0">
+                            Expert advice on financial regulations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-navy pt-12 text-center">
+            <a href="expertise.html"
+                class="inline-block border border-gold text-gold px-12 py-3 text-sm font-bold uppercase tracking-[0.2em] hover:bg-gold hover:text-navy transition-colors">
+                View More Expertise
+            </a>
+        </div>
+    </section>
+
+    <!-- 5. "Why Clients Trust Us" Section -->
+    <section class="py-32 bg-cover bg-fixed bg-center relative"
+        style="background-image: url('./assets/images/handshake-bg.jpg');">
+        <div class="absolute inset-0 bg-navy/95"></div> <!-- Very Heavy dark overlay -->
+
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 class="text-5xl font-serif text-center text-white mb-20 tracking-wide">Why Clients Trust Us</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+                <!-- Column 1 -->
+                <div class="flex flex-col items-center text-center group">
+                    <div class="w-full h-64 overflow-hidden mb-8 border border-white/10">
+                        <!-- Note: strict extension usage .jpeg for trust-1 -->
+                        <img src="./assets/images/trust-1.jpeg" alt="Trust"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <p class="text-2xl font-serif text-white italic">"Trust is practiced, not promised."</p>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="flex flex-col items-center text-center group">
+                    <div class="w-full h-64 overflow-hidden mb-8 border border-white/10">
+                        <img src="./assets/images/trust-2.jpg" alt="Clarity"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <p class="text-2xl font-serif text-white italic">"Clarity before commitment."</p>
+                </div>
+
+                <!-- Column 3 -->
+                <div class="flex flex-col items-center text-center group">
+                    <div class="w-full h-64 overflow-hidden mb-8 border border-white/10">
+                        <img src="./assets/images/trust-3.jpg" alt="Stewardship"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <p class="text-2xl font-serif text-white italic">"More than representation: Stewardship."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Availability Section -->
+    <section class="py-40 bg-cover bg-center relative"
+        style="background-image: url('./assets/images/building-bg.jpg');">
+        <div class="absolute inset-0 bg-brown/80"></div>
+
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <h2 class="text-4xl md:text-6xl font-serif text-white font-bold leading-tight drop-shadow-lg">
+                Open for client meetings <br> on all business days.
+            </h2>
+        </div>
+    </section>
+
+    <!-- 7. Footer (3 Columns) -->
+    <footer class="bg-[#050f1e] text-gray-400 py-24 border-t border-white/5">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+
+                <!-- Column 1: Resources -->
+                <div>
+                    <h4
+                        class="text-white font-serif text-xl mb-8 tracking-[0.1em] uppercase border-l-2 border-gold pl-4">
+                        Resources</h4>
+                    <ul class="space-y-4 text-sm font-light tracking-wide">
+                        <li><a href="articles.html"
+                                class="hover:text-gold transition-colors block py-1 border-b border-white/5 hover:border-gold/30">Legal
+                                Articles</a></li>
+                        <li><a href="updates.html"
+                                class="hover:text-gold transition-colors block py-1 border-b border-white/5 hover:border-gold/30">Landmark
+                                Cases</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 2: Company -->
+                <div>
+                    <h4
+                        class="text-white font-serif text-xl mb-8 tracking-[0.1em] uppercase border-l-2 border-gold pl-4">
+                        Company</h4>
+                    <ul class="space-y-4 text-sm font-light tracking-wide">
+                        <li><a href="index.html"
+                                class="hover:text-gold transition-colors block py-1 border-b border-white/5 hover:border-gold/30">Home</a>
+                        </li>
+                        <li><a href="about.html"
+                                class="hover:text-gold transition-colors block py-1 border-b border-white/5 hover:border-gold/30">About
+                                Us</a></li>
+                        <li><a href="expertise.html"
+                                class="hover:text-gold transition-colors block py-1 border-b border-white/5 hover:border-gold/30">Expertise</a>
+                        </li>
+                        <li><a href="team.html"
+                                class="hover:text-gold transition-colors block py-1 border-b border-white/5 hover:border-gold/30">Team</a>
+                        </li>
+                        <li><a href="events.html"
+                                class="hover:text-gold transition-colors block py-1 border-b border-white/5 hover:border-gold/30">Events</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact -->
+                                <div>
+                    <h4
+                        class="text-white font-serif text-xl mb-8 tracking-[0.1em] uppercase border-l-2 border-gold pl-4">
+                        Contact</h4>
+                    <ul class="space-y-6 text-sm font-light tracking-wide">
+                        <li class="group">
+                            <span
+                                class="block text-xs uppercase text-gold mb-1 group-hover:text-white transition-colors">Islamabad Office</span>
+                            <span class="text-white text-sm leading-relaxed">Flat No. 1, First Floor, Plaza 163<br>Mateen Arcade, Bahria Civic Centre<br>Phase 4, Islamabad</span>
+                            <span class="block text-gray-500 text-xs mt-1">7 PM &mdash; 10 PM | Sun &mdash; Fri</span>
+                        </li>
+                        <li class="group">
+                            <span
+                                class="block text-xs uppercase text-gold mb-1 group-hover:text-white transition-colors">Rawalpindi Chamber</span>
+                            <span class="text-white text-sm leading-relaxed">Chamber 95, Ground Floor,<br>Justice Iftikhar Ch Block,<br>District Courts, Rawalpindi</span>
+                            <span class="block text-gray-500 text-xs mt-1">8 AM &mdash; 3 PM | Mon &mdash; Sat</span>
+                        </li>
+                        <li class="group">
+                            <span
+                                class="block text-xs uppercase text-gold mb-1 group-hover:text-white transition-colors">Cell Phone & WhatsApp</span>
+                            <span class="text-white text-sm">0312-4604786</span><br>
+                            <span class="text-white text-sm">0331-5052838</span>
+                        </li>
+                        <li class="group">
+                            <span
+                                class="block text-xs uppercase text-gold mb-1 group-hover:text-white transition-colors">Email</span>
+                            <a href="mailto:the.elixirs.law.firm@gmail.com"
+                                class="text-white text-sm hover:underline decoration-gold underline-offset-4">the.elixirs.law.firm@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div
+                class="border-t border-white/5 mt-20 pt-10 text-center text-xs tracking-[0.2em] uppercase text-gray-600">
+                <p>&copy; 2026 The Elixirs Law Firm. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compromise at Bail Stage - The Elixirs Law Firm</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            DEFAULT: '#0a192f',
+                            light: '#112240',
+                        },
+                        gold: {
+                            DEFAULT: '#CDA34F',
+                        },
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Lato', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .fade-in-section {
+            opacity: 0;
+            transition: opacity 0.6s ease-in-out;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+        }
+
+        /* Table Styling */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Lato', sans-serif;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .comparison-table th {
+            background-color: #0a192f;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 1rem 1.5rem;
+            text-align: left;
+            font-weight: 700;
+            border: 1px solid #0a192f;
+        }
+
+        .comparison-table td {
+            padding: 1rem 1.5rem;
+            border: 1px solid #E5E5E5;
+            background-color: #fff;
+            color: #555;
+            font-weight: 300;
+        }
+
+        .comparison-table tr:nth-child(even) td {
+            background-color: #F9F9F9;
+        }
+    </style>
+</head>
+
+<body class="text-[#2C2C2C] font-sans antialiased bg-parallax"
+    style="background-image: url('./assets/images/team-section-bg.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 bg-[#0a192f] h-32 shadow-2xl border-b border-white/5">
+        <div class="container mx-auto px-8 h-full flex justify-between items-center">
+            <a href="index.html" class="flex flex-col items-center justify-center hover:opacity-80 transition-opacity uppercase mb-1 w-max">
+                <span class="text-[34px] whitespace-nowrap tracking-[0.1em] leading-none text-center" style="color: #9A7B3A; font-family: 'Cormorant Garamond', serif; font-weight: 800;">THE ELIXIRS</span>
+                <!-- Added ml-[0.3em] to counteract the right-pull of the tracking-[0.3em] for perfect visual centering -->
+                <span class="text-[12px] whitespace-nowrap tracking-[0.3em] text-white mt-1 ml-[0.3em] text-center" style="font-family: 'Lato', sans-serif; font-weight: 400;">LAW FIRM</span>
+            </a>
+            <nav class="hidden xl:flex space-x-8 items-center h-full">
+                <a href="index.html"
+                    class="text-white hover:text-[#9A7B3A] text-[12px] whitespace-nowrap uppercase tracking-[0.15em] transition-colors font-[800]">Home</a>
+                <a href="about.html"
+                    class="text-white hover:text-[#9A7B3A] text-[12px] whitespace-nowrap uppercase tracking-[0.15em] transition-colors font-[800]">About
+                    Us</a>
+                <a href="expertise.html"
+                    class="text-white hover:text-[#9A7B3A] text-[12px] whitespace-nowrap uppercase tracking-[0.15em] transition-colors font-[800]">Expertise</a>
+                <a href="team.html"
+                    class="text-white hover:text-[#9A7B3A] text-[12px] whitespace-nowrap uppercase tracking-[0.15em] transition-colors font-[800]">Team</a>
+                <a href="updates.html"
+                    class="text-white hover:text-[#9A7B3A] text-[12px] whitespace-nowrap uppercase tracking-[0.15em] transition-colors font-[800]">Landmark Cases</a>
+                <a href="articles.html"
+                    class="text-[#9A7B3A] text-[12px] whitespace-nowrap uppercase tracking-[0.15em] transition-colors font-[800]">Legal
+                    Articles</a>
+                <a href="events.html"
+                    class="text-white hover:text-[#9A7B3A] text-[12px] whitespace-nowrap uppercase tracking-[0.15em] transition-colors font-[800]">Events</a>
+                <a href="contact.html"
+                    class="bg-white text-[#0a192f] px-6 py-3 text-[11px] whitespace-nowrap uppercase tracking-widest font-[800] hover:bg-gold transition-all border-b-2 border-gold">Contact
+                    Us</a>
+            </nav>
+            <button class="xl:hidden text-white focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-40 pb-20 fade-in-section">
+        <div class="container mx-auto px-6 max-w-4xl bg-white p-10 md:p-16 shadow-lg border border-[#E5E5E5] relative">
+            <div class="absolute top-0 left-0 w-full h-2 bg-navy"></div>
+
+            <a href="articles.html"
+                class="inline-flex items-center text-gold text-sm font-bold uppercase tracking-widest hover:text-navy transition-colors mb-8">
+                &larr; Back to Articles
+            </a>
+
+            <h1 class="text-[26px] whitespace-nowrap md:text-4xl font-serif text-navy mb-8 leading-snug font-bold">Compromise at Bail Stage &mdash; Does It
+                Bind the Trial Court?</h1>
+
+            <div class="prose prose-lg max-w-none text-[#555] font-serif leading-relaxed">
+                <p class="mb-8"><strong>Overview:</strong> The practice of effecting compromise during the pendency of
+                    bail proceedings has become frequent. However, judicial pronouncements in 2005 SCMR 1342 and PLD
+                    2016 SC 347 clarify that the perception that these bind the trial court is legally flawed.</p>
+
+                <h3 class="text-xl font-sans font-bold text-navy uppercase tracking-wide mb-4">Why Bail-Stage
+                    Compromises are Inconclusive</h3>
+                <p class="mb-6">In 2005 SCMR 1342, the Court held that a compromise during bail before arrest does not
+                    amount to a compromise with the leave of the trial court. Bail proceedings are concerned with
+                    liberty, not the adjudication of guilt or the formal recording of a compromise under Section 345
+                    Cr.P.C.</p>
+
+                <h4 class="font-bold text-navy text-lg mb-4 font-sans">Trial Court Obligations:</h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 font-sans">
+                    <div
+                        class="bg-[#F9F9F9] border border-[#E5E5E5] p-5 rounded-sm flex flex-col items-center text-center">
+                        <div class="w-12 h-12 bg-navy text-gold flex items-center justify-center rounded-full mb-3">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h5 class="font-bold text-navy text-sm uppercase tracking-wider mb-2">Verification</h5>
+                        <p class="text-sm font-light text-[#555] m-0">Whether the offence is compoundable.</p>
+                    </div>
+                    <div
+                        class="bg-[#F9F9F9] border border-[#E5E5E5] p-5 rounded-sm flex flex-col items-center text-center">
+                        <div class="w-12 h-12 bg-navy text-gold flex items-center justify-center rounded-full mb-3">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h5 class="font-bold text-navy text-sm uppercase tracking-wider mb-2">Permission</h5>
+                        <p class="text-sm font-light text-[#555] m-0">Whether court leave is required.</p>
+                    </div>
+                    <div
+                        class="bg-[#F9F9F9] border border-[#E5E5E5] p-5 rounded-sm flex flex-col items-center text-center">
+                        <div class="w-12 h-12 bg-navy text-gold flex items-center justify-center rounded-full mb-3">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h5 class="font-bold text-navy text-sm uppercase tracking-wider mb-2">Voluntariness</h5>
+                        <p class="text-sm font-light text-[#555] m-0">Whether the settlement is genuine.</p>
+                    </div>
+                </div>
+
+                <h3 class="text-xl font-sans font-bold text-navy uppercase tracking-wide mb-4">The Distinction</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th class="w-1/2">Bail Jurisdiction</th>
+                            <th class="w-1/2">Trial Jurisdiction</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Tentative assessment of evidence.</td>
+                            <td>Final evaluation of the entire evidence.</td>
+                        </tr>
+                        <tr>
+                            <td>Determines prima-facie connection.</td>
+                            <td>Conclusively determines rights and guilt.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="bg-[#fff7e6] border-l-4 border-gold p-6 mb-10 shadow-sm font-sans">
+                    <h4 class="font-bold text-[#b38024] uppercase tracking-wide mb-2 flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z">
+                            </path>
+                        </svg>
+                        Practical Implications for the Bar
+                    </h4>
+                    <p class="text-[#6b521c] font-light text-[15px] m-0">Counsel must ensure a proper application under
+                        Section 345 Cr.P.C. is filed. Reliance solely on bail-stage observations is precarious; trial
+                        courts retain full authority to proceed if the compromise is not legally sanctioned.</p>
+                </div>
+                <p class="mb-10 text-lg">In conclusion, the Supreme Court has made it unequivocally clear that a
+                    compromise reached solely to secure bail cannot bypass the formal mechanisms of the trial court.
+                    Bail proceedings are concerned only with the immediate question of liberty and involve a tentative
+                    assessment of the facts. They do not substitute the rigorous evaluation required during a trial, nor
+                    do they automatically validate a settlement under Section 345 Cr.P.C. Consequently, parties must
+                    formally move the trial court and satisfy its independent scrutiny to give legal effect to any
+                    out-of-court settlement, ensuring that justice is neither compromised nor short-circuited.</p>
+
+                <hr class="border-[#E5E5E5] my-10">
+
+                <h3 class="text-2xl font-serif text-navy mb-6">Frequently Asked Questions</h3>
+                <div class="bg-white border border-[#E5E5E5] rounded-sm p-6 font-sans">
+                    <p class="font-bold text-navy mb-2 text-lg">Question: Does a compromise during pre-arrest bail end
+                        the trial?</p>
+                    <p class="text-[#555] font-light">Answer: No. 2005 SCMR 1342 clarifies that such settlements do not
+                        automatically bind the trial court or extinguish the prosecution without formal statutory
+                        compliance.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#050f1e] text-gray-400 py-24 border-t border-white/5">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+                <div>
+                    <h4
+                        class="text-white font-serif text-xl mb-8 tracking-[0.1em] uppercase border-l-2 border-gold pl-4">
+                        Resources</h4>
+                    <ul class="space-y-4 text-sm font-light tracking-wide">
+                        <li><a href="articles.html"
+                                class="hover:text-gold transition-colors block py-1 border-b border-white/5 hover:border-gold/30">Legal
+                                Articles</a></li>
+                        <li><a href="updates.html"
+                                class="hover:text-gold transition-colors block py-1 border-b border-white/5 hover:border-gold/30">Landmark Cases</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4
+                        class="text-white font-serif text-xl mb-8 tracking-[0.1em] uppercase border-l-2 border-gold pl-4">
+                        Company</h4>
+                    <ul class="space-y-4 text-sm font-light tracking-wide">
+                        <li><a href="index.html"
+                                class="hover:text-gold transition-colors block py-1 border-b border-white/5 hover:border-gold/30">Home</a>
+                        </li>
+                        <li><a href="about.html"
+                                class="hover:text-gold transition-colors block py-1 border-b border-white/5 hover:border-gold/30">About
+                                Us</a></li>
+                        <li><a href="expertise.html"
+                                class="hover:text-gold transition-colors block py-1 border-b border-white/5 hover:border-gold/30">Expertise</a>
+                        </li>
+                        <li><a href="team.html"
+                                class="hover:text-gold transition-colors block py-1 border-b border-white/5 hover:border-gold/30">Team</a>
+                        </li>
+                        <li><a href="events.html"
+                                class="hover:text-gold transition-colors block py-1 border-b border-white/5 hover:border-gold/30">Events</a>
+                        </li>
+                    </ul>
+                </div>
+                                <div>
+                    <h4
+                        class="text-white font-serif text-xl mb-8 tracking-[0.1em] uppercase border-l-2 border-gold pl-4">
+                        Contact</h4>
+                    <ul class="space-y-6 text-sm font-light tracking-wide">
+                        <li class="group">
+                            <span
+                                class="block text-xs uppercase text-gold mb-1 group-hover:text-white transition-colors">Islamabad Office</span>
+                            <span class="text-white text-sm leading-relaxed">Flat No. 1, First Floor, Plaza 163<br>Mateen Arcade, Bahria Civic Centre<br>Phase 4, Islamabad</span>
+                            <span class="block text-gray-500 text-xs mt-1">7 PM &mdash; 10 PM | Sun &mdash; Fri</span>
+                        </li>
+                        <li class="group">
+                            <span
+                                class="block text-xs uppercase text-gold mb-1 group-hover:text-white transition-colors">Rawalpindi Chamber</span>
+                            <span class="text-white text-sm leading-relaxed">Chamber 95, Ground Floor,<br>Justice Iftikhar Ch Block,<br>District Courts, Rawalpindi</span>
+                            <span class="block text-gray-500 text-xs mt-1">8 AM &mdash; 3 PM | Mon &mdash; Sat</span>
+                        </li>
+                        <li class="group">
+                            <span
+                                class="block text-xs uppercase text-gold mb-1 group-hover:text-white transition-colors">Cell Phone & WhatsApp</span>
+                            <span class="text-white text-sm">0312-4604786</span><br>
+                            <span class="text-white text-sm">0331-5052838</span>
+                        </li>
+                        <li class="group">
+                            <span
+                                class="block text-xs uppercase text-gold mb-1 group-hover:text-white transition-colors">Email</span>
+                            <a href="mailto:the.elixirs.law.firm@gmail.com"
+                                class="text-white text-sm hover:underline decoration-gold underline-offset-4">the.elixirs.law.firm@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                class="border-t border-white/5 mt-20 pt-10 text-center text-xs tracking-[0.2em] uppercase text-gray-600">
+                <p>&copy; 2026 The Elixirs Law Firm. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.fade-in-section').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+
+</html>
