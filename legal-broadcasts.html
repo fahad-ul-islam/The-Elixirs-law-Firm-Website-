@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <meta name="description" content="Strategic insights into the technicalities of Pakistan's legal landscape. Watch educational legal videos from The Legal Edge by Asif, presented by Malik Asif Nawaz.">
+    <meta property="og:title" content="Legal Broadcasts - The Elixirs Law Firm">
+    <meta property="og:description" content="Strategic insights into the technicalities of Pakistan's legal landscape. Watch educational legal videos from The Legal Edge by Asif, presented by Malik Asif Nawaz.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://theelixirslawfirm.com/legal-broadcasts.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:image" content="https://theelixirslawfirm.com/assets/images/og-preview.jpg">
+    <meta name="twitter:image" content="https://theelixirslawfirm.com/assets/images/og-preview.jpg">
+    <link rel="canonical" href="https://theelixirslawfirm.com/legal-broadcasts.html">
+    <title>Legal Broadcasts - The Elixirs Law Firm</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700;800&family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Custom Styles */
+        .glass-brown {
+            background: rgba(62, 39, 35, 0.95);
+        }
+
+        /* ===== BROADCASTS PAGE STYLES ===== */
+
+        /* Thumbnail wrapper */
+        .broadcast-card {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #D4AF37;
+            aspect-ratio: 16 / 9;
+        }
+
+        .broadcast-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: filter 0.4s ease;
+        }
+
+        /* Dark overlay on hover */
+        .broadcast-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0);
+            transition: background 0.4s ease;
+            pointer-events: none;
+        }
+
+        .broadcast-card:hover::after {
+            background: rgba(0, 0, 0, 0.55);
+        }
+
+        /* Gold Play Icon */
+        .broadcast-card .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.7);
+            z-index: 10;
+            opacity: 0;
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            pointer-events: none;
+        }
+
+        .broadcast-card:hover .play-icon {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        /* Filter button styles */
+        .filter-btn {
+            background: #0a192f;
+            color: #D4AF37;
+            border: 1px solid #D4AF37;
+            padding: 10px 22px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .filter-btn:hover {
+            background: rgba(212, 175, 55, 0.15);
+        }
+
+        .filter-btn.active {
+            background: #D4AF37;
+            color: #001f3f;
+        }
+
+        /* Card entrance animation */
+        .video-item {
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .video-item.hidden-card {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="bg-[#001f3f] text-white font-sans antialiased">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-[9999] focus:bg-[#CDA34F] focus:text-[#0a192f] focus:px-4 focus:py-2 focus:text-sm focus:font-bold">Skip to main content</a>
+
+    <!-- 1. Architectural Header -->
+    <header class="fixed top-0 w-full z-50 bg-navy h-32 shadow-2xl border-b border-white/5">
+        <div class="container mx-auto px-8 h-full flex justify-between items-center">
+            <!-- Left: Brand Name -->
+            <a href="index.html" class="flex flex-col items-center justify-center hover:opacity-80 transition-opacity uppercase mb-1 w-max">
+                <span class="text-[34px] whitespace-nowrap tracking-[0.1em] leading-none text-center" style="color: #9A7B3A; font-family: 'Cormorant Garamond', serif; font-weight: 800;">THE ELIXIRS</span>
+                <span class="text-[12px] whitespace-nowrap tracking-[0.3em] text-white mt-1 ml-[0.3em] text-center" style="font-family: 'Lato', sans-serif; font-weight: 400;">LAW FIRM</span>
+            </a>
+
+            <!-- Right: Navigation Links -->
+            <nav class="hidden xl:flex space-x-8 items-center h-full">
+                <a href="index.html"
+                    class="text-white hover:text-[#9A7B3A] text-[12px] whitespace-nowrap uppercase tracking-[0.15em] transition-colors font-[800]">Home</a>
+                <a href="about.html"
+                    class="text-white hover:text-[#9A7B3A] text-[12px] whitespace-nowrap uppercase tracking-[0.15em] transition-colors font-[800]">About
+                    Us</a>
+                <a href="expertise.html"
+                    class="text-white hover:text-[#9A7B3A] text-[12px] whitespace-nowrap uppercase tracking-[0.15em] transition-colors font-[800]">Expertise</a>
+                <a href="team.html"
+                    class="text-white hover:text-[#9A7B3A] text-[12px] whitespace-nowrap uppercase tracking-[0.15em] transition-colors font-[800]">Team</a>
+                <a href="updates.html"
+                    class="text-white hover:text-[#9A7B3A] text-[12px] whitespace-nowrap uppercase tracking-[0.15em] transition-colors font-[800]">Landmark
+                    Cases</a>
+                <a href="articles.html"
+                    class="text-white hover:text-[#9A7B3A] text-[12px] whitespace-nowrap uppercase tracking-[0.15em] transition-colors font-[800]">Legal
+                    Articles</a>
+                <a href="events.html"
+                    class="text-white hover:text-[#9A7B3A] text-[12px] whitespace-nowrap uppercase tracking-[0.15em] transition-colors font-[800]">Events</a>
+                <a href="legal-broadcasts.html"
+                    class="text-[#9A7B3A] text-[12px] whitespace-nowrap uppercase tracking-[0.15em] transition-colors font-[800]">Legal
+                    Broadcasts</a>
+                <a href="contact.html"
+                    class="bg-white text-[#0a192f] px-6 py-3 text-[11px] whitespace-nowrap uppercase tracking-widest font-[800] hover:bg-gold transition-all border-b-2 border-gold">Contact
+                    Us</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="xl:hidden text-white focus:outline-none" aria-label="Open navigation menu" aria-expanded="false">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- 2. Hero / Title Section -->
+    <section id="main-content" class="pt-52 pb-16 bg-[#001f3f] text-center">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <!-- Decorative line -->
+            <div class="w-20 h-[2px] bg-[#D4AF37] mx-auto mb-8 opacity-60"></div>
+
+            <h1 class="font-serif text-white mb-6 leading-tight tracking-[0.12em]"
+                style="font-size: clamp(2.5rem, 5vw, 3.8rem); font-weight: 800; color: #D4AF37; text-transform: uppercase;">
+                LEGAL BROADCASTS
+            </h1>
+
+            <!-- Decorative line -->
+            <div class="w-20 h-[2px] bg-[#D4AF37] mx-auto mb-8 opacity-60"></div>
+
+            <p class="text-lg md:text-xl text-gray-200 leading-relaxed max-w-3xl mx-auto"
+                style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.25rem;">
+                Strategic insights into the technicalities of Pakistan's legal landscape.<br>
+                Presented by Malik Asif Nawaz.
+            </p>
+        </div>
+    </section>
+
+    <!-- 3. Filter Buttons -->
+    <section class="bg-[#001f3f] pb-8">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="flex flex-wrap justify-center gap-3" id="filterBar">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="criminal">Criminal Law</button>
+                <button class="filter-btn" data-filter="civil">Civil &amp; Family</button>
+                <button class="filter-btn" data-filter="constitutional">Constitutional &amp; Judiciary</button>
+                <button class="filter-btn" data-filter="public">Public Interest</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Video Grid -->
+    <section class="bg-[#001f3f] py-12">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[30px]" id="videoGrid">
+
+                <!-- 1. Who is an Absconder (Mafroor)? -->
+                <div class="video-item" data-branch="criminal">
+                    <a href="https://www.youtube.com/watch?v=F_k7BnnTROM&t=1s" target="_blank" rel="noopener noreferrer">
+                        <div class="broadcast-card">
+                            <img src="./assets/images/absconder_mafroor.jpg" alt="Who is an Absconder (Mafroor)?">
+                            <!-- Play Icon SVG -->
+                            <svg class="play-icon" width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                <circle cx="32" cy="32" r="30" stroke="#D4AF37" stroke-width="3" fill="rgba(0,0,0,0.3)"/>
+                                <polygon points="26,20 26,44 46,32" fill="#D4AF37"/>
+                            </svg>
+                        </div>
+                    </a>
+                    <div class="pt-4 pb-2">
+                        <span class="text-[10px] uppercase tracking-[0.2em] font-bold" style="color: #D4AF37;">The Legal Edge</span>
+                        <a href="https://www.youtube.com/watch?v=F_k7BnnTROM&t=1s" target="_blank" rel="noopener noreferrer"
+                            class="block mt-1 text-white font-bold text-[15px] leading-snug hover:text-[#D4AF37] transition-colors" style="font-weight: 700;">
+                            Who is an Absconder (Mafroor)?
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 2. Exhumation of Dead Body | The Legal Edge -->
+                <div class="video-item" data-branch="criminal">
+                    <a href="https://www.youtube.com/watch?v=VRu0SVh9Eec" target="_blank" rel="noopener noreferrer">
+                        <div class="broadcast-card">
+                            <img src="./assets/images/exhumation_legal_edge.jpg" alt="Exhumation of Dead Body | The Legal Edge">
+                            <svg class="play-icon" width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                <circle cx="32" cy="32" r="30" stroke="#D4AF37" stroke-width="3" fill="rgba(0,0,0,0.3)"/>
+                                <polygon points="26,20 26,44 46,32" fill="#D4AF37"/>
+                            </svg>
+                        </div>
+                    </a>
+                    <div class="pt-4 pb-2">
+                        <span class="text-[10px] uppercase tracking-[0.2em] font-bold" style="color: #D4AF37;">The Legal Edge</span>
+                        <a href="https://www.youtube.com/watch?v=VRu0SVh9Eec" target="_blank" rel="noopener noreferrer"
+                            class="block mt-1 text-white font-bold text-[15px] leading-snug hover:text-[#D4AF37] transition-colors" style="font-weight: 700;">
+                            Exhumation of Dead Body | The Legal Edge
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 3. Entries in Nikahnama & Legal Consequences -->
+                <div class="video-item" data-branch="civil">
+                    <a href="https://www.youtube.com/watch?v=3ktgSFtTf8o" target="_blank" rel="noopener noreferrer">
+                        <div class="broadcast-card">
+                            <img src="./assets/images/nikahnama_entries.jpg" alt="Entries in Nikahnama & Legal Consequences">
+                            <svg class="play-icon" width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                <circle cx="32" cy="32" r="30" stroke="#D4AF37" stroke-width="3" fill="rgba(0,0,0,0.3)"/>
+                                <polygon points="26,20 26,44 46,32" fill="#D4AF37"/>
+                            </svg>
+                        </div>
+                    </a>
+                    <div class="pt-4 pb-2">
+                        <span class="text-[10px] uppercase tracking-[0.2em] font-bold" style="color: #D4AF37;">The Legal Edge</span>
+                        <a href="https://www.youtube.com/watch?v=3ktgSFtTf8o" target="_blank" rel="noopener noreferrer"
+                            class="block mt-1 text-white font-bold text-[15px] leading-snug hover:text-[#D4AF37] transition-colors" style="font-weight: 700;">
+                            Entries in Nikahnama &amp; Legal Consequences
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 4. Physical Remand: The Untold Realities -->
+                <div class="video-item" data-branch="criminal">
+                    <a href="https://www.youtube.com/watch?v=aafCujevsYE" target="_blank" rel="noopener noreferrer">
+                        <div class="broadcast-card">
+                            <img src="./assets/images/physical_remand.jpg" alt="Physical Remand: The Untold Realities">
+                            <svg class="play-icon" width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                <circle cx="32" cy="32" r="30" stroke="#D4AF37" stroke-width="3" fill="rgba(0,0,0,0.3)"/>
+                                <polygon points="26,20 26,44 46,32" fill="#D4AF37"/>
+                            </svg>
+                        </div>
+                    </a>
+                    <div class="pt-4 pb-2">
+                        <span class="text-[10px] uppercase tracking-[0.2em] font-bold" style="color: #D4AF37;">The Legal Edge</span>
+                        <a href="https://www.youtube.com/watch?v=aafCujevsYE" target="_blank" rel="noopener noreferrer"
+                            class="block mt-1 text-white font-bold text-[15px] leading-snug hover:text-[#D4AF37] transition-colors" style="font-weight: 700;">
+                            Physical Remand: The Untold Realities
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 5. Courts' Preference: Custody of Children -->
+                <div class="video-item" data-branch="civil">
+                    <a href="https://www.youtube.com/watch?v=_w6N1_sHtX8" target="_blank" rel="noopener noreferrer">
+                        <div class="broadcast-card">
+                            <img src="./assets/images/child_custody_preference.jpg" alt="Courts' Preference: Custody of Children">
+                            <svg class="play-icon" width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                <circle cx="32" cy="32" r="30" stroke="#D4AF37" stroke-width="3" fill="rgba(0,0,0,0.3)"/>
+                                <polygon points="26,20 26,44 46,32" fill="#D4AF37"/>
+                            </svg>
+                        </div>
+                    </a>
+                    <div class="pt-4 pb-2">
+                        <span class="text-[10px] uppercase tracking-[0.2em] font-bold" style="color: #D4AF37;">The Legal Edge</span>
+                        <a href="https://www.youtube.com/watch?v=_w6N1_sHtX8" target="_blank" rel="noopener noreferrer"
+                            class="block mt-1 text-white font-bold text-[15px] leading-snug hover:text-[#D4AF37] transition-colors" style="font-weight: 700;">
+                            Courts' Preference: Custody of Children
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 6. Legal Significance of Weapon Recovery -->
+                <div class="video-item" data-branch="criminal">
+                    <a href="https://www.youtube.com/watch?v=MgdjFlS-Yq8" target="_blank" rel="noopener noreferrer">
+                        <div class="broadcast-card">
+                            <img src="./assets/images/weapon_recovery_significance.jpg" alt="Legal Significance of Weapon Recovery">
+                            <svg class="play-icon" width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                <circle cx="32" cy="32" r="30" stroke="#D4AF37" stroke-width="3" fill="rgba(0,0,0,0.3)"/>
+                                <polygon points="26,20 26,44 46,32" fill="#D4AF37"/>
+                            </svg>
+                        </div>
+                    </a>
+                    <div class="pt-4 pb-2">
+                        <span class="text-[10px] uppercase tracking-[0.2em] font-bold" style="color: #D4AF37;">The Legal Edge</span>
+                        <a href="https://www.youtube.com/watch?v=MgdjFlS-Yq8" target="_blank" rel="noopener noreferrer"
+                            class="block mt-1 text-white font-bold text-[15px] leading-snug hover:text-[#D4AF37] transition-colors" style="font-weight: 700;">
+                            Legal Significance of Weapon Recovery
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 7. Death by Negligence: Legal Remedies -->
+                <div class="video-item" data-branch="criminal">
+                    <a href="https://www.youtube.com/watch?v=z-Tr-6LXVnU" target="_blank" rel="noopener noreferrer">
+                        <div class="broadcast-card">
+                            <img src="./assets/images/negligent_death_remedies.jpg" alt="Death by Negligence: Legal Remedies">
+                            <svg class="play-icon" width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                <circle cx="32" cy="32" r="30" stroke="#D4AF37" stroke-width="3" fill="rgba(0,0,0,0.3)"/>
+                                <polygon points="26,20 26,44 46,32" fill="#D4AF37"/>
+                            </svg>
+                        </div>
+                    </a>
+                    <div class="pt-4 pb-2">
+                        <span class="text-[10px] uppercase tracking-[0.2em] font-bold" style="color: #D4AF37;">The Legal Edge</span>
+                        <a href="https://www.youtube.com/watch?v=z-Tr-6LXVnU" target="_blank" rel="noopener noreferrer"
+                            class="block mt-1 text-white font-bold text-[15px] leading-snug hover:text-[#D4AF37] transition-colors" style="font-weight: 700;">
+                            Death by Negligence: Legal Remedies
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 8. Smoking & Public Health: The Law Cares for You -->
+                <div class="video-item" data-branch="public">
+                    <a href="https://www.youtube.com/watch?v=_vGjNgHzIs0" target="_blank" rel="noopener noreferrer">
+                        <div class="broadcast-card">
+                            <img src="./assets/images/smoking_law_health.jpg" alt="Smoking & Public Health: The Law Cares for You">
+                            <svg class="play-icon" width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                <circle cx="32" cy="32" r="30" stroke="#D4AF37" stroke-width="3" fill="rgba(0,0,0,0.3)"/>
+                                <polygon points="26,20 26,44 46,32" fill="#D4AF37"/>
+                            </svg>
+                        </div>
+                    </a>
+                    <div class="pt-4 pb-2">
+                        <span class="text-[10px] uppercase tracking-[0.2em] font-bold" style="color: #D4AF37;">The Legal Edge</span>
+                        <a href="https://www.youtube.com/watch?v=_vGjNgHzIs0" target="_blank" rel="noopener noreferrer"
+                            class="block mt-1 text-white font-bold text-[15px] leading-snug hover:text-[#D4AF37] transition-colors" style="font-weight: 700;">
+                            Smoking &amp; Public Health: The Law Cares for You
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 9. Enforcement of Women's Property Right Act 2020 (Part 03) -->
+                <div class="video-item" data-branch="civil">
+                    <a href="https://www.youtube.com/watch?v=qHtRF4b14Lw" target="_blank" rel="noopener noreferrer">
+                        <div class="broadcast-card">
+                            <img src="./assets/images/womens_property_p3.jpg" alt="Enforcement of Women's Property Right Act 2020 (Part 03)">
+                            <svg class="play-icon" width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                <circle cx="32" cy="32" r="30" stroke="#D4AF37" stroke-width="3" fill="rgba(0,0,0,0.3)"/>
+                                <polygon points="26,20 26,44 46,32" fill="#D4AF37"/>
+                            </svg>
+                        </div>
+                    </a>
+                    <div class="pt-4 pb-2">
+                        <span class="text-[10px] uppercase tracking-[0.2em] font-bold" style="color: #D4AF37;">The Legal Edge</span>
+                        <a href="https://www.youtube.com/watch?v=qHtRF4b14Lw" target="_blank" rel="noopener noreferrer"
+                            class="block mt-1 text-white font-bold text-[15px] leading-snug hover:text-[#D4AF37] transition-colors" style="font-weight: 700;">
+                            Enforcement of Women's Property Right Act 2020 (Part 03)
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 10. Enforcement of Women's Property Right Act 2020 (Part 02) -->
+                <div class="video-item" data-branch="civil">
+                    <a href="https://www.youtube.com/watch?v=UELIsAE3OhM" target="_blank" rel="noopener noreferrer">
+                        <div class="broadcast-card">
+                            <img src="./assets/images/womens_property_p2.jpg" alt="Enforcement of Women's Property Right Act 2020 (Part 02)">
+                            <svg class="play-icon" width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                <circle cx="32" cy="32" r="30" stroke="#D4AF37" stroke-width="3" fill="rgba(0,0,0,0.3)"/>
+                                <polygon points="26,20 26,44 46,32" fill="#D4AF37"/>
+                            </svg>
+                        </div>
+                    </a>
+                    <div class="pt-4 pb-2">
+                        <span class="text-[10px] uppercase tracking-[0.2em] font-bold" style="color: #D4AF37;">The Legal Edge</span>
+                        <a href="https://www.youtube.com/watch?v=UELIsAE3OhM" target="_blank" rel="noopener noreferrer"
+                            class="block mt-1 text-white font-bold text-[15px] leading-snug hover:text-[#D4AF37] transition-colors" style="font-weight: 700;">
+                            Enforcement of Women's Property Right Act 2020 (Part 02)
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 11. Enforcement of Women's Property Right Act 2020 (Part 01) -->
+                <div class="video-item" data-branch="civil">
+                    <a href="https://www.youtube.com/watch?v=4gOGa9uEWFQ" target="_blank" rel="noopener noreferrer">
+                        <div class="broadcast-card">
+                            <img src="./assets/images/womens_property_p1.jpg" alt="Enforcement of Women's Property Right Act 2020 (Part 01)">
+                            <svg class="play-icon" width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                <circle cx="32" cy="32" r="30" stroke="#D4AF37" stroke-width="3" fill="rgba(0,0,0,0.3)"/>
+                                <polygon points="26,20 26,44 46,32" fill="#D4AF37"/>
+                            </svg>
+                        </div>
+                    </a>
+                    <div class="pt-4 pb-2">
+                        <span class="text-[10px] uppercase tracking-[0.2em] font-bold" style="color: #D4AF37;">The Legal Edge</span>
+                        <a href="https://www.youtube.com/watch?v=4gOGa9uEWFQ" target="_blank" rel="noopener noreferrer"
+                            class="block mt-1 text-white font-bold text-[15px] leading-snug hover:text-[#D4AF37] transition-colors" style="font-weight: 700;">
+                            Enforcement of Women's Property Right Act 2020 (Part 01)
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 12. Anti-Rape Law in Pakistan: Procedure & Trial -->
+                <div class="video-item" data-branch="criminal">
+                    <a href="https://www.youtube.com/watch?v=8kaHNyPMxvw" target="_blank" rel="noopener noreferrer">
+                        <div class="broadcast-card">
+                            <img src="./assets/images/anti_rape_law_pakistan.jpg" alt="Anti-Rape Law in Pakistan: Procedure & Trial">
+                            <svg class="play-icon" width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                <circle cx="32" cy="32" r="30" stroke="#D4AF37" stroke-width="3" fill="rgba(0,0,0,0.3)"/>
+                                <polygon points="26,20 26,44 46,32" fill="#D4AF37"/>
+                            </svg>
+                        </div>
+                    </a>
+                    <div class="pt-4 pb-2">
+                        <span class="text-[10px] uppercase tracking-[0.2em] font-bold" style="color: #D4AF37;">The Legal Edge</span>
+                        <a href="https://www.youtube.com/watch?v=8kaHNyPMxvw" target="_blank" rel="noopener noreferrer"
+                            class="block mt-1 text-white font-bold text-[15px] leading-snug hover:text-[#D4AF37] transition-colors" style="font-weight: 700;">
+                            Anti-Rape Law in Pakistan: Procedure &amp; Trial
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 13. Sexual Harassment at Workplace: Punishment & Case Laws -->
+                <div class="video-item" data-branch="public">
+                    <a href="https://www.youtube.com/watch?v=0InxaIpZpvM" target="_blank" rel="noopener noreferrer">
+                        <div class="broadcast-card">
+                            <img src="./assets/images/harassment_workplace_law_p2.jpg" alt="Sexual Harassment at Workplace: Punishment & Case Laws">
+                            <svg class="play-icon" width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                <circle cx="32" cy="32" r="30" stroke="#D4AF37" stroke-width="3" fill="rgba(0,0,0,0.3)"/>
+                                <polygon points="26,20 26,44 46,32" fill="#D4AF37"/>
+                            </svg>
+                        </div>
+                    </a>
+                    <div class="pt-4 pb-2">
+                        <span class="text-[10px] uppercase tracking-[0.2em] font-bold" style="color: #D4AF37;">The Legal Edge</span>
+                        <a href="https://www.youtube.com/watch?v=0InxaIpZpvM" target="_blank" rel="noopener noreferrer"
+                            class="block mt-1 text-white font-bold text-[15px] leading-snug hover:text-[#D4AF37] transition-colors" style="font-weight: 700;">
+                            Sexual Harassment at Workplace: Punishment &amp; Case Laws
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 14. Sexual Harassment at Workplace: Law & Procedure -->
+                <div class="video-item" data-branch="public">
+                    <a href="https://www.youtube.com/watch?v=Yd6sghIt4Dc" target="_blank" rel="noopener noreferrer">
+                        <div class="broadcast-card">
+                            <img src="./assets/images/harassment_workplace_law_p1.jpg" alt="Sexual Harassment at Workplace: Law & Procedure">
+                            <svg class="play-icon" width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                <circle cx="32" cy="32" r="30" stroke="#D4AF37" stroke-width="3" fill="rgba(0,0,0,0.3)"/>
+                                <polygon points="26,20 26,44 46,32" fill="#D4AF37"/>
+                            </svg>
+                        </div>
+                    </a>
+                    <div class="pt-4 pb-2">
+                        <span class="text-[10px] uppercase tracking-[0.2em] font-bold" style="color: #D4AF37;">The Legal Edge</span>
+                        <a href="https://www.youtube.com/watch?v=Yd6sghIt4Dc" target="_blank" rel="noopener noreferrer"
+                            class="block mt-1 text-white font-bold text-[15px] leading-snug hover:text-[#D4AF37] transition-colors" style="font-weight: 700;">
+                            Sexual Harassment at Workplace: Law &amp; Procedure
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 15. The Transgender Act 2018: Legal Review -->
+                <div class="video-item" data-branch="constitutional">
+                    <a href="https://www.youtube.com/watch?v=JmFP1laCyiU" target="_blank" rel="noopener noreferrer">
+                        <div class="broadcast-card">
+                            <img src="./assets/images/transgender_act_2018.jpg" alt="The Transgender Act 2018: Legal Review">
+                            <svg class="play-icon" width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                <circle cx="32" cy="32" r="30" stroke="#D4AF37" stroke-width="3" fill="rgba(0,0,0,0.3)"/>
+                                <polygon points="26,20 26,44 46,32" fill="#D4AF37"/>
+                            </svg>
+                        </div>
+                    </a>
+                    <div class="pt-4 pb-2">
+                        <span class="text-[10px] uppercase tracking-[0.2em] font-bold" style="color: #D4AF37;">The Legal Edge</span>
+                        <a href="https://www.youtube.com/watch?v=JmFP1laCyiU" target="_blank" rel="noopener noreferrer"
+                            class="block mt-1 text-white font-bold text-[15px] leading-snug hover:text-[#D4AF37] transition-colors" style="font-weight: 700;">
+                            The Transgender Act 2018: Legal Review
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 16. Bail on Medical Grounds: How and When -->
+                <div class="video-item" data-branch="criminal">
+                    <a href="https://www.youtube.com/watch?v=ZBaPFfNP6Vs" target="_blank" rel="noopener noreferrer">
+                        <div class="broadcast-card">
+                            <img src="./assets/images/medical_bail_grounds.jpg" alt="Bail on Medical Grounds: How and When">
+                            <svg class="play-icon" width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                <circle cx="32" cy="32" r="30" stroke="#D4AF37" stroke-width="3" fill="rgba(0,0,0,0.3)"/>
+                                <polygon points="26,20 26,44 46,32" fill="#D4AF37"/>
+                            </svg>
+                        </div>
+                    </a>
+                    <div class="pt-4 pb-2">
+                        <span class="text-[10px] uppercase tracking-[0.2em] font-bold" style="color: #D4AF37;">The Legal Edge</span>
+                        <a href="https://www.youtube.com/watch?v=ZBaPFfNP6Vs" target="_blank" rel="noopener noreferrer"
+                            class="block mt-1 text-white font-bold text-[15px] leading-snug hover:text-[#D4AF37] transition-colors" style="font-weight: 700;">
+                            Bail on Medical Grounds: How and When
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 17. Judge Bias & Prejudice: Favour to a Party (Part 02) -->
+                <div class="video-item" data-branch="constitutional">
+                    <a href="https://www.youtube.com/watch?v=z71eztGR-LA" target="_blank" rel="noopener noreferrer">
+                        <div class="broadcast-card">
+                            <img src="./assets/images/judge_bias_p2.jpg" alt="Judge Bias & Prejudice: Favour to a Party (Part 02)">
+                            <svg class="play-icon" width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                <circle cx="32" cy="32" r="30" stroke="#D4AF37" stroke-width="3" fill="rgba(0,0,0,0.3)"/>
+                                <polygon points="26,20 26,44 46,32" fill="#D4AF37"/>
+                            </svg>
+                        </div>
+                    </a>
+                    <div class="pt-4 pb-2">
+                        <span class="text-[10px] uppercase tracking-[0.2em] font-bold" style="color: #D4AF37;">The Legal Edge</span>
+                        <a href="https://www.youtube.com/watch?v=z71eztGR-LA" target="_blank" rel="noopener noreferrer"
+                            class="block mt-1 text-white font-bold text-[15px] leading-snug hover:text-[#D4AF37] transition-colors" style="font-weight: 700;">
+                            Judge Bias &amp; Prejudice: Favour to a Party (Part 02)
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 18. Judge Bias & Prejudice: Favour to a Party (Part 01) -->
+                <div class="video-item" data-branch="constitutional">
+                    <a href="https://www.youtube.com/watch?v=nfXOaQHmgbY" target="_blank" rel="noopener noreferrer">
+                        <div class="broadcast-card">
+                            <img src="./assets/images/judge_bias_p1.jpg" alt="Judge Bias & Prejudice: Favour to a Party (Part 01)">
+                            <svg class="play-icon" width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                <circle cx="32" cy="32" r="30" stroke="#D4AF37" stroke-width="3" fill="rgba(0,0,0,0.3)"/>
+                                <polygon points="26,20 26,44 46,32" fill="#D4AF37"/>
+                            </svg>
+                        </div>
+                    </a>
+                    <div class="pt-4 pb-2">
+                        <span class="text-[10px] uppercase tracking-[0.2em] font-bold" style="color: #D4AF37;">The Legal Edge</span>
+                        <a href="https://www.youtube.com/watch?v=nfXOaQHmgbY" target="_blank" rel="noopener noreferrer"
+                            class="block mt-1 text-white font-bold text-[15px] leading-snug hover:text-[#D4AF37] transition-colors" style="font-weight: 700;">
+                            Judge Bias &amp; Prejudice: Favour to a Party (Part 01)
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 19. Suo Moto Jurisdiction: Scope & Exercise -->
+                <div class="video-item" data-branch="constitutional">
+                    <a href="https://www.youtube.com/watch?v=phiQL9h92lA" target="_blank" rel="noopener noreferrer">
+                        <div class="broadcast-card">
+                            <img src="./assets/images/suo_moto_jurisdiction.jpg" alt="Suo Moto Jurisdiction: Scope & Exercise">
+                            <svg class="play-icon" width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                <circle cx="32" cy="32" r="30" stroke="#D4AF37" stroke-width="3" fill="rgba(0,0,0,0.3)"/>
+                                <polygon points="26,20 26,44 46,32" fill="#D4AF37"/>
+                            </svg>
+                        </div>
+                    </a>
+                    <div class="pt-4 pb-2">
+                        <span class="text-[10px] uppercase tracking-[0.2em] font-bold" style="color: #D4AF37;">The Legal Edge</span>
+                        <a href="https://www.youtube.com/watch?v=phiQL9h92lA" target="_blank" rel="noopener noreferrer"
+                            class="block mt-1 text-white font-bold text-[15px] leading-snug hover:text-[#D4AF37] transition-colors" style="font-weight: 700;">
+                            Suo Moto Jurisdiction: Scope &amp; Exercise
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Subscribe CTA -->
+    <section class="bg-[#001f3f] py-16 text-center">
+        <div class="container mx-auto px-6">
+            <div class="w-16 h-[2px] bg-[#D4AF37] mx-auto mb-8 opacity-40"></div>
+            <p class="text-gray-400 text-sm uppercase tracking-[0.2em] mb-6">Stay informed with the latest legal analysis</p>
+            <a href="https://www.youtube.com/@TheLegalEdgebyAsif?sub_confirmation=1" target="_blank" rel="noopener noreferrer"
+                class="inline-block px-12 py-4 text-sm font-bold uppercase tracking-[0.2em] transition-all duration-300 hover:opacity-90 hover:shadow-lg"
+                style="background: #D4AF37; color: #001f3f;">
+                Subscribe for Updates
+            </a>
+        </div>
+    </section>
+
+    <!-- 6. Footer -->
+    <footer class="bg-[#050f1e] text-gray-400 py-24 border-t border-white/5">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+
+                <!-- Column 1: Resources -->
+                <div>
+                    <h4
+                        class="text-white font-serif text-xl mb-8 tracking-[0.1em] uppercase border-l-2 border-gold pl-4">
+                        Resources</h4>
+                    <ul class="space-y-4 text-sm font-light tracking-wide">
+                        <li><a href="articles.html"
+                                class="hover:text-gold transition-colors block py-1 border-b border-white/5 hover:border-gold/30">Legal
+                                Articles</a></li>
+                        <li><a href="updates.html"
+                                class="hover:text-gold transition-colors block py-1 border-b border-white/5 hover:border-gold/30">Landmark
+                                Cases</a></li>
+                        <li><a href="legal-broadcasts.html"
+                                class="hover:text-gold transition-colors block py-1 border-b border-white/5 hover:border-gold/30">Legal
+                                Broadcasts</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 2: Company -->
+                <div>
+                    <h4
+                        class="text-white font-serif text-xl mb-8 tracking-[0.1em] uppercase border-l-2 border-gold pl-4">
+                        Company</h4>
+                    <ul class="space-y-4 text-sm font-light tracking-wide">
+                        <li><a href="index.html"
+                                class="hover:text-gold transition-colors block py-1 border-b border-white/5 hover:border-gold/30">Home</a>
+                        </li>
+                        <li><a href="about.html"
+                                class="hover:text-gold transition-colors block py-1 border-b border-white/5 hover:border-gold/30">About
+                                Us</a></li>
+                        <li><a href="expertise.html"
+                                class="hover:text-gold transition-colors block py-1 border-b border-white/5 hover:border-gold/30">Expertise</a>
+                        </li>
+                        <li><a href="team.html"
+                                class="hover:text-gold transition-colors block py-1 border-b border-white/5 hover:border-gold/30">Team</a>
+                        </li>
+                        <li><a href="events.html"
+                                class="hover:text-gold transition-colors block py-1 border-b border-white/5 hover:border-gold/30">Events</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact -->
+                                <div>
+                    <h4
+                        class="text-white font-serif text-xl mb-8 tracking-[0.1em] uppercase border-l-2 border-gold pl-4">
+                        Contact</h4>
+                    <ul class="space-y-6 text-sm font-light tracking-wide">
+                        <li class="group">
+                            <span
+                                class="block text-xs uppercase text-gold mb-1 group-hover:text-white transition-colors">Islamabad Office</span>
+                            <span class="text-white text-sm leading-relaxed">Flat No. 1, First Floor, Plaza 163<br>Mateen Arcade, Bahria Civic Centre<br>Phase 4, Islamabad</span>
+                            <span class="block text-gray-500 text-xs mt-1">7 PM &mdash; 10 PM | Sun &mdash; Fri</span>
+                        </li>
+                        <li class="group">
+                            <span
+                                class="block text-xs uppercase text-gold mb-1 group-hover:text-white transition-colors">Rawalpindi Chamber</span>
+                            <span class="text-white text-sm leading-relaxed">Chamber 95, Ground Floor,<br>Justice Iftikhar Ch Block,<br>District Courts, Rawalpindi</span>
+                            <span class="block text-gray-500 text-xs mt-1">8 AM &mdash; 3 PM | Mon &mdash; Sat</span>
+                        </li>
+                        <li class="group">
+                            <span
+                                class="block text-xs uppercase text-gold mb-1 group-hover:text-white transition-colors">Cell Phone & WhatsApp</span>
+                            <span class="text-white text-sm"><a href="tel:+923124604786" class="hover:underline">0312-4604786</a></span><br>
+                            <span class="text-white text-sm"><a href="tel:+923315052838" class="hover:underline">0331-5052838</a></span>
+                        </li>
+                        <li class="group">
+                            <span
+                                class="block text-xs uppercase text-gold mb-1 group-hover:text-white transition-colors">Email</span>
+                            <a href="mailto:the.elixirs.law.firm@gmail.com"
+                                class="text-white text-sm hover:underline decoration-gold underline-offset-4">the.elixirs.law.firm@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div
+                class="border-t border-white/5 mt-20 pt-10 text-center text-xs tracking-[0.2em] uppercase text-gray-600">
+                <p>&copy; 2026 The Elixirs Law Firm. All Rights Reserved.</p>
+                <div class="mt-4 flex justify-center gap-6 text-xs">
+                    <a href="./privacy-policy.html" class="hover:text-gold transition-colors">Privacy Policy</a>
+                    <a href="./disclaimer.html" class="hover:text-gold transition-colors">Disclaimer</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Filter Script -->
+    <script>
+        (function() {
+            const filterBar = document.getElementById('filterBar');
+            const buttons = filterBar.querySelectorAll('.filter-btn');
+            const items = document.querySelectorAll('.video-item');
+
+            filterBar.addEventListener('click', function(e) {
+                const btn = e.target.closest('.filter-btn');
+                if (!btn) return;
+
+                // Update active state
+                buttons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                items.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-branch') === filter) {
+                        item.classList.remove('hidden-card');
+                    } else {
+                        item.classList.add('hidden-card');
+                    }
+                });
+            });
+        })();
+    </script>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
