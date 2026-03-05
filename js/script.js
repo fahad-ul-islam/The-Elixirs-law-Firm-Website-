@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 { href: 'updates.html', text: 'Landmark Cases' },
                 { href: 'articles.html', text: 'Legal Articles' },
                 { href: 'events.html', text: 'Events' },
+                { href: 'legal-broadcasts.html', text: 'Legal Broadcasts' },
                 { href: 'contact.html', text: 'Contact Us', highlight: true },
             ];
 
