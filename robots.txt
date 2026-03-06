@@ -1,3 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /package.json
+Disallow: /tailwind.config.js
 Sitemap: https://theelixirslawfirm.com/sitemap.xml
