@@ -3,8 +3,6 @@ Allow: /
 Disallow: /.git/
 Disallow: /node_modules/
 Disallow: /src/
-Disallow: /*.ps1$
-Disallow: /*.js$
 Disallow: /package.json
 Disallow: /tailwind.config.js
 Sitemap: https://theelixirslawfirm.com/sitemap.xml
